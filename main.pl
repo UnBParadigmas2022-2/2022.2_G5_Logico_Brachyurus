@@ -5,6 +5,7 @@ menu:-
     write('3 - Jogar'),nl,
     write('4 - Sair'),nl,
     read_string(user, "\n", "\r", _, X),
+	write(X),
 	option(X),
 	X==0,
 	!.
