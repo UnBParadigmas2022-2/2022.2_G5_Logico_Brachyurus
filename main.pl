@@ -1,4 +1,5 @@
 menu:-
+    clearScreen(),
     write('----------------- BACHYURUS -----------------'),nl,
     write('1 - História'),nl,
     write('2 - Tutorial'),nl,
@@ -13,6 +14,8 @@ menu:-
 option(1):- write('opcao 1'), nl, !.
 option(2):- write('opcao 2'), nl, !.
 option(3):- write('opcao 3'), nl, !.
-option(4):- write('opcao 4'), nl, !.
+option(4):- write('Saido...'), nl, !.
 option(_):- write('Opcao invalida'), nl, menu.
 
+clearScreen():-
+    write('\33\[2J').
