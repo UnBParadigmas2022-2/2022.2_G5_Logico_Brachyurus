@@ -1,43 +1,34 @@
-# RepositorioTemplate
-Esse repositório é para ser utilizado pelos grupos como um template inicial, da home page do Projeto.
-As seções do Template NÃO DEVEM SER OMITIDAS, sendo TODAS RELEVANTES.
-
-**!! *Atenção: Renomeie o seu repositório para (Ano.Semestre)_(Grupo)_(Paradigma)_(NomeDoProjeto)*. !!** 
-
-Paradigmas:
- - Funcional
- - Logico
- - SMA
-
-**!! *Não coloque os nomes dos alunos no título do repositório*. !!**
-
-**!! *Exemplo de título correto: 2022.2_G1_Logico_ProjetoRoteirosAereos*. !!**
- 
- (Apague esses comentários)
-
-# NomeDoProjeto
+# Brachyurus
 
 **Disciplina**: FGA0210 - PARADIGMAS DE PROGRAMAÇÃO - T01 <br>
-**Nro do Grupo (de acordo com a Planilha de Divisão dos Grupos)**: XX<br>
-**Paradigma**: XXXXXXXXXX<br>
+**Nro do Grupo (de acordo com a Planilha de Divisão dos Grupos)**: 05<br>
+**Paradigma**: Lógico<br>
 
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 19/0142421  | Artur Vinicius Dias Nunes |
+| 19/0085291  | Caio César Oliveira |
+| 18/0123203 | João Pedro Alves da Silva Chaves |
+| 18/0123459  | João Vitor de Souza Durso |
+| 19/0128712  | Leticia Assunção Aires Moreira |
+| 19/0111836  | Luan Vasco Cavalcante |
+| 19/0044390  | Victor Rayan Adriano Ferreira |
 
 ## Sobre 
-Descreva o seu projeto em linhas gerais. 
-Use referências, links, que permitam conhecer um pouco mais sobre o projeto.
-Capriche nessa seção, pois ela é a primeira a ser lida pelos interessados no projeto.
+O presente projeto foi desenvolvido durante a disciplina de Paradigmas de Programação do curso de Engenharia de Software da Universidade de Brasília com o intuito de aplicar conhecimentos adquiridos no módulo de paradigma lógico.
+
+O jogo construído se inicia quando o personagem principal Chrysocyon Brachyurus, mais comumente conhecido como Lobo Guará, acorda em sua toca e nota a ausência de sua mãe.
+Após dias aguardando seu retorno, o lobinho decide ir a seu encontro, apesar das inúmeras ameaças dispostas no mapa.
+
+O andamento do jogo e a história final são diretamente influenciados pelas decisões do jogador com relação às possíveis escolhas de Brachyurus, de modo que o reencontro do filhote e sua mãe é uma das várias possíveis conclusões do jogo.
 
 ## Screenshots
 Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
 
 ## Instalação 
-**Linguagens**: xxxxxx<br>
-**Tecnologias**: xxxxxx<br>
+**Linguagens**: Prolog<br>
+**Tecnologias**: VS Code e Prolog<br>
 Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
 Insira um manual ou um script para auxiliar ainda mais.
 Gifs animados e outras ilustrações são bem-vindos!
@@ -58,10 +49,16 @@ OBS: TODOS DEVEM PARTICIPAR, CONFERINDO PONTOS DE VISTA.
 TEMPO: +/- 15min
 
 ## Participações
-Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
+
 |Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) |
 | -- | -- | -- |
-| Fulano  |  Programação dos Fatos da Base de Conhecimento Lógica | Boa |
+| Artur Vinicius Dias Nunes  |   |  |
+| Caio César Oliveira | |  |
+| João Pedro Alves da Silva Chaves |  |  |
+| João Vitor de Souza Durso |  |  |
+| Leticia Assunção Aires Moreira | |  |
+| Luan Vasco Cavalcante |  |  |
+| Victor Rayan Adriano Ferreira | |  |
 
 ## Outros 
 Quaisquer outras informações sobre o projeto podem ser descritas aqui. Não esqueça, entretanto, de informar sobre:
