@@ -14,6 +14,7 @@
 | 19/0128712  | Leticia Assunção Aires Moreira |
 | 19/0111836  | Luan Vasco Cavalcante |
 | 19/0044390  | Victor Rayan Adriano Ferreira |
+| 19/0011602  | Christian Fleury Alencar Siqueira |
 
 ## Sobre 
 O presente projeto foi desenvolvido durante a disciplina de Paradigmas de Programação do curso de Engenharia de Software da Universidade de Brasília com o intuito de aplicar conhecimentos adquiridos no módulo de paradigma lógico.
