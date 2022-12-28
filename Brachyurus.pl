@@ -1,14 +1,24 @@
-play(n) :- write('Thank you to play Brachyurus'), nl, !.
+play(n) :- write('Obrigado por jogar Brachyurus'), nl, !.
 
 
-/*  Trocar pelo menu de vocês  */
-
-play :-	write('Bachyurus!!!'), nl,
-	write('Bachyurus é um jogo em que você tem que ajudar um incrível Lobo-Guará em sua missão'), nl,
-	write('1 História'), nl,
-	write('2 Tutorial'), nl,
-	write('Faça sua escolha'),nl,
-	write('>'),
+play :-	write('____________________________________________________________________________________'),nl,
+    write('                                                                                    '),nl,
+    write('██████╗ ██████╗  █████╗  ██████╗██╗  ██╗██╗   ██╗██╗   ██╗██████╗ ██╗   ██╗███████╗'),nl,
+    write('██╔══██╗██╔══██╗██╔══██╗██╔════╝██║  ██║╚██╗ ██╔╝██║   ██║██╔══██╗██║   ██║██╔════╝'),nl,
+    write('██████╔╝██████╔╝███████║██║     ███████║ ╚████╔╝ ██║   ██║██████╔╝██║   ██║███████╗'),nl,
+    write('██╔══██╗██╔══██╗██╔══██║██║     ██╔══██║  ╚██╔╝  ██║   ██║██╔══██╗██║   ██║╚════██║'),nl,
+    write('██████╔╝██║  ██║██║  ██║╚██████╗██║  ██║   ██║   ╚██████╔╝██║  ██║╚██████╔╝███████║'),nl,
+    write('╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝'),nl,
+    write('                                                                                    '),nl,
+    write('____________________________________________________________________________________'),nl,  
+    write('                                                                                    '),nl,
+    write('                                   MENU                                             '),nl,
+    write('____________________________________________________________________________________'),nl,
+    write('                                                                                    '),nl,
+    write('                             1 - Jogar'),nl,
+    write('                             2 - Tutorial'),nl,
+    write('                             3 - História'),nl,
+    write('                             4 - Sair'),nl,
 	read(Alternative),
 	no1(Alternative).
 
@@ -31,6 +41,24 @@ no1(1) :- write('Era uma noite chuvosa, o céu era preenchido por nuvens e a noi
 
 no1(2) :- write('TUTORIAL. . .'), nl,
 	   play.
+	   
+no1(3) :- write('HISTÓRIA. . .'), nl,
+        write('Foi em um dia de primavera que nasceu nosso protagonista, Brachyurus!'), nl, nl,
+        write('Os filhotes de lobo guará nascem cegos e surdos, assim, eles permanecem em suas tocas sob o cuidado da mãe.'), nl, nl,
+        write('Brachyurus ainda é só um filhote quando acorda sozinho em meio à noite tempestuosa e nota a ausência de sua mãe.'), nl, nl,
+        write('Ele nunca tinha saído da toca e estava com fome e com medo'), nl, nl,
+		write('Ainda com tenra idade, Brachyurus se deparou com uma realidade que nem mesmo alguns adultos suportam:'), nl,
+	    write('Fazer decisões'), nl, nl,
+	    write('Você ajudará Brachyurus na perigosa jornada de busca por sua mãe?? (y,n)'), nl,
+	    write('>'),
+	    read(Desire),
+	    play(Desire).
+       
+no1(4) :- write('Você não gostaria de ajudar Brachyurus? (y, n)'), nl,
+        write('>'),
+       	read(Desire),
+	    play(Desire).
+
 
 no2(1) :- write('Tem um informativo na parede, Brachyurus nunca se atentou a isso . . .'), nl,
 	   write('1 Ler informativo'), nl,
@@ -62,5 +90,3 @@ no3(2) :- write('Os dias passaram e nada de sua mamãe Lobo-Guará. Você está 
 		write('>'),
 	    read(Desire),
 	    play(Desire).
-
-
