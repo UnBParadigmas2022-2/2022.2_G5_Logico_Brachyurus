@@ -88,9 +88,10 @@ no3(2) :- write('Os dias passaram e nada de sua mamãe Lobo-Guará. Você está 
 		write('2 Esperar mais e morrer ?'),nl,
 		write('Faça sua escolha'),nl,
 		write('>'),
-	    read(Desire),
-	    play(Desire).
+	    read(Alternative),
+	    no4(Alternative).
 
+/*  Pode puxar um novo nó a partir do no4(3) "Seguir o caminho sozinho"  */
 no4(1) :- write('Você começou a jornada em busca de sua mãe....'), nl,
 		write('O cerrado está tranquilo hoje. Mas você está com fome e perdido nos grandes campos do cerrado.'), nl,
 		write('Você encontra um bando de Emas, que conhecem bastante a região.'),nl,
@@ -100,7 +101,54 @@ no4(1) :- write('Você começou a jornada em busca de sua mãe....'), nl,
 		write('2 Seguir o caminho sozinho ?'),nl,
 		write('Faça sua escolha'),nl,
 		write('>'),
-		
+		read(Alternative),
+	    no41(Alternative).
+
+no4(2) :- write('Você ficou perdido e com fome pelo Cerrado!'), nl,
+		write('Você perdeu !!'),nl,
+		write('Gostaria de jogar de novo ? (y,n)'),nl,
+		write('>'),
+		read(Desire),
+		play(Desire).
+
+resposta_charada(195).
+
+startcharada(Tentativas):-
+	
+	Tentativas>0,
+	write('Pensei em um número e somei 35. Depois Tirei 17 e cheguei ao número 213. o numero que pensei foi ???'), nl,
+	write('Escreva a resposta >'),
+	resposta_charada(Respostacharada),
+	read(Guess),
+	(   Guess == Respostacharada
+	->  write('Resposta Correta.'),no5(0)
+	;   Diminuitentativa is Tentativas-1,
+		write('Resposta Errada, você tem '),
+		write(Diminuitentativa), 
+		write(' tentativas restantes'), nl,nl,
+		startcharada(Diminuitentativa)
+	).
+
+/*  tela de derrota do no4 */
+startcharada(0):-
+
+	write('As Emas ficaram revoltadas com você, e te expulsaram da região '), nl,
+	write('Você morreu de fome '), nl,nl,
+	write('Você perdeu !!'),nl,
+	write('Gostaria de jogar de novo ? (y,n)'),nl,
+	write('>'),
+	read(Desire),
+	play(Desire).
+
+no41(1) :- write('O desafio é:'), nl,
+	startcharada(4). /*  Inicia charada com 4 tentativas */
+
+no41(2) :- no4(2).
+
+/*  Pode fazer um novo nó apartir daqui */
+no5(0) :- write('Continua...'), nl,
+		read(Desire),
+		play(y).
 
 
 
