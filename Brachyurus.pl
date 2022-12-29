@@ -90,3 +90,21 @@ no3(2) :- write('Os dias passaram e nada de sua mamãe Lobo-Guará. Você está 
 		write('>'),
 	    read(Desire),
 	    play(Desire).
+
+no4(1) :- write('Você começou a jornada em busca de sua mãe....'), nl,
+		write('O cerrado está tranquilo hoje. Mas você está com fome e perdido nos grandes campos do cerrado.'), nl,
+		write('Você encontra um bando de Emas, que conhecem bastante a região.'),nl,
+		write('As Emas amam matemática, mas não estão conseguindo resolver um desafio.'),nl,
+		write('As Emas lhe oferecem ajuda e comida, mas em troca você deve desvendar a charada.'),nl,
+		write('1 Resolver a charada'),nl,
+		write('2 Seguir o caminho sozinho ?'),nl,
+		write('Faça sua escolha'),nl,
+		write('>'),
+		
+
+
+
+
+
+
+
