@@ -51,8 +51,8 @@ no1(3) :- write('HISTÓRIA. . .'), nl,
 	    write('Fazer decisões'), nl, nl,
 	    write('Você ajudará Brachyurus na perigosa jornada de busca por sua mãe?? (y,n)'), nl,
 	    write('>'),
-	    read(Desire),
-	    play(Desire).
+	    read(Alternative),
+	   no6(Alternative).
        
 no1(4) :- write('Você não gostaria de ajudar Brachyurus? (y, n)'), nl,
         write('>'),
@@ -99,7 +99,7 @@ no3(2) :- write('Os dias passaram e nada de sua mamãe Lobo-Guará. Você está 
 	    no4(Alternative).
 
 /*  Pode puxar um novo nó a partir do no4(3) "Seguir o caminho sozinho"  */
-no4(1) :- write('Você começou a jornada em busca de sua mãe....'), nl,
+no4(1) :- write('Entáo Você começou a jornada em busca de sua mãe....'), nl,
 		write('O cerrado está tranquilo hoje. Mas você está com fome e perdido nos grandes campos do cerrado.'), nl,
 		write('Você encontra um bando de Emas, que conhecem bastante a região.'),nl,
 		write('As Emas amam matemática, mas não estão conseguindo resolver um desafio.'),nl,
@@ -128,7 +128,7 @@ startcharada(Tentativas):-
 	resposta_charada(Respostacharada),
 	read(Guess),
 	(   Guess == Respostacharada
-	->  write('Resposta Correta.'),no5(0)
+	->  write('Resposta Correta.'),no5(1)
 	;   Diminuitentativa is Tentativas-1,
 		write('Resposta Errada, você tem '),
 		write(Diminuitentativa), 
@@ -152,8 +152,7 @@ no41(1) :- write('O desafio é:'), nl,
 
 no41(2) :- no4(2).
 
-/*  Pode fazer um novo nó apartir daqui */
-no5(0) :- write('Continua...'), nl,
+no5(1) :- write('As emas'), nl,
 		read(Desire),
 		play(y).
 
@@ -164,7 +163,14 @@ no6(1) :- write('Ao começar a investigar a toca, um relâmpago ilumina algo no 
 		write('Faça sua escolha'),nl,
 		write('>'),
 	    read(Alternative),
-		  no5(Alternative).
+		  no7(Alternative).
 
 no6(2) :- write('Você consegue dormir bastante...'), nl,
     no3(2).
+
+/*  Criar novo no a partir daqui */
+no7(1) :- write('Continua...'), nl,
+    read(Alternative),
+		play(y).
+
+no7(2) :- no4(1).
