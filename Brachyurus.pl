@@ -204,3 +204,26 @@ no8(2) :- write('No caminho da tenda do caçador'), nl,
 		write('>'),
 	    read(Alternative),
 	    no10(Alternative).
+
+no9(1) :- write('O cachorro caramelo fica muito grato pela sua ajuda, '), nl,
+ 	  	write('porém não sabe nada sobre sua mãe, mas diz que para retribuir irá te acompanhar até a caverna da onça-pintada. '), nl,
+		write('Passado algum tempo de caminhada, próximo a caverna da onça-pintada são encontradas pegadas de lobo-guará.'), nl,
+		write('Porém uma ventania forte acontece e as pegadas somem, '), nl,
+		write('felizmente o cachorro caramelo tem um ótimo faro e consegue sentir o cheiro do dono/a das pegadas.'), nl,
+		write('1. Confiar no cachorro caramelo e segui-lo.'), nl,
+		write('2. Desconfiar do cachorro caramelo e seguir em direção da caverna.'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	    read(Alternative),
+		  no11(Alternative).
+
+no9(2) :- write('Passado algum tempo de caminhada, próximo a caverna da onça-pintada são encontradas pegadas de lobo-guará.'), nl,
+		write('Porém uma ventania forte acontece e as pegadas somem, '), nl,
+		write('infelizmente o seu faro não é bom suficiente para acompanhar o cheiro.'), nl,
+		write('1. Seguir em direção da caverna.'), nl,
+		write('2. Voltar e seguir em direção da tenda do caçador.'),nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	    read(Alternative),
+	    no12(Alternative).
+
