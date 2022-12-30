@@ -227,3 +227,25 @@ no9(2) :- write('Passado algum tempo de caminhada, próximo a caverna da onça-p
 	    read(Alternative),
 	    no12(Alternative).
 
+no11(1) :- write('O cachorro caramelo segue os rastros até uma entrada secreta da caverna. '), nl,
+ 	  	write('Então o cachorro pede desculpas e fala que só te acompanhará até aquele ponto porque tem muito medo da onça-pintada. '), nl,
+		write('Vocês se despedem e ao entrar na caverna você...'), nl,
+		write('1. Grita por sua mãe.'), nl,
+		write('2. Segue furtivamente.'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	    read(Alternative),
+		  no13(Alternative).
+
+no11(2) :- write('Ao chegar na entrada da caverna sozinho e assustado você não vê nem sinal da onça-pintada.'), nl,
+		write('Ao entrar na caverna você...'), nl,
+		write('1. Grita por sua mãe.'), nl,
+		write('2. Segue furtivamente.'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	    read(Alternative),
+	    no14(Alternative).
+
+no12(1) :- no11(2).
+
+no12(2) :- no8(2).
