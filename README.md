@@ -39,7 +39,7 @@ Gifs animados e outras ilustrações são bem-vindos!
 Avance pela história selecionando uma das opções disponíveis, a fim de sobreviver nessa incrível jornada!
 Cada alternativa será representada por um número inteiro (1, 2, 3, 4...), basta escolher e digitar no terminal.
 Digite sempre o número da alternativa seguido por um ponto final. Ex: 2.
-Por fim, pressione _enter_ caso queira retornar ao menu. Boa sorte!!!
+Por fim, pressione _enter_ caso queira retornar ao menu. Boa sorte!
 
 ### Menú
 Na tela de menú, o jogador pode digitar:<br>
