@@ -35,9 +35,18 @@ Insira um manual ou um script para auxiliar ainda mais.
 Gifs animados e outras ilustrações são bem-vindos!
 
 ## Uso 
-Explique como usar seu projeto.
-Procure ilustrar em passos, com apoio de telas do software, seja com base na interface gráfica, seja com base no terminal.
-Nessa seção, deve-se revelar de forma clara sobre o funcionamento do software.
+### Como jogar Brachyurus?
+Avance pela história selecionando uma das opções disponíveis, a fim de sobreviver nessa incrível jornada!
+Cada alternativa será representada por um número inteiro (1, 2, 3, 4...), basta escolher e digitar no terminal.
+Digite sempre o número da alternativa seguido por um ponto final. Ex: 2.
+Por fim, pressione _enter_ caso queira retornar ao menu. Boa sorte!!!
+
+### Menú
+Na tela de menú, o jogador pode digitar:<br>
+**1**, para entender sobre a história do jogo;<br>
+**2**, para visualizar o tutorial in-game;<br>
+**3**, para iniciar o jogo, e<br>
+**4**, para sair do jogo.
 
 ## Vídeo
 Adicione 1 ou mais vídeos com a execução do projeto.
