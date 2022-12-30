@@ -28,4 +28,7 @@ tutorial:-
     write('Como jogar Brachyurus?'), nl,
     write('Avance pela história selecionando uma das opções disponíveis, a fim de sobreviver nessa incrível jornada!'), nl,
     write('Cada alternativa será representada por um número inteiro (1, 2, 3, 4...), basta escolher e digitar no terminal.'), nl,
-    write('Digite sempre o número da alternativa seguido por um ponto final. Ex: 2.'), nl.
+    write('Digite sempre o número da alternativa seguido por um ponto final. Ex: 2.'), nl,
+    write('Pressione enter para voltar para o menu.'), nl,
+    read().
+
