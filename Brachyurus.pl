@@ -60,7 +60,8 @@ no1(4) :- write('Você não gostaria de ajudar Brachyurus? (y, n)'), nl,
 	    play(Desire).
 
 
-no2(1) :- write('Tem um informativo na parede, Brachyurus nunca se atentou a isso . . .'), nl,
+no2(1) :- nl,
+		write('Tem um informativo na parede, Brachyurus nunca se atentou a isso . . .'), nl,
 	   write('1. Ler informativo'), nl,
 	   write('2. Esperar Mamãe'), nl,
 	   write('Faça sua escolha:'),nl,
@@ -68,7 +69,8 @@ no2(1) :- write('Tem um informativo na parede, Brachyurus nunca se atentou a iss
 	   read(Alternative),
 	   no3(Alternative).
 
-no2(2) :- write('A chuva está muito forte e os perigos são muitos.Brachyurus escorregou e foi levado pela água'), nl,
+no2(2) :- nl,
+		write('A chuva está muito forte e os perigos são muitos.Brachyurus escorregou e foi levado pela água'), nl,
  	    write('Você perdeu !!'),nl,
 		write('Gostaria de jogar de novo ? (y,n)'),nl,
 		write('>'),
@@ -76,7 +78,8 @@ no2(2) :- write('A chuva está muito forte e os perigos são muitos.Brachyurus e
 	    play(Desire).
 
 /*  Você consegue forçar a ida pra qualquer nó, olhe a linha 55  */
-no3(1) :- write('INFO SOBRE LOBOS GUARÁ'), nl,
+no3(1) :- nl,
+		write('INFO SOBRE LOBOS GUARÁ'), nl,
  	  write('Apesar do porte imponente e da alcunha de “lobo”, é tímido, solitário e praticamente inofensivo,'), nl,
 		write('preferindo manter distância de populações humanas.'), nl,
 		write('Usa suas presas para se alimentar de pequenos animais'), nl,
@@ -90,7 +93,8 @@ no3(1) :- write('INFO SOBRE LOBOS GUARÁ'), nl,
 	    read(Alternative),
 		  no6(Alternative).
 
-no3(2) :- write('Os dias passaram e nada de sua mamãe Lobo-Guará. Você está com muita fome, talvez seja a hora de Brachyurus seguir em busca de sua mãe.'), nl,
+no3(2) :- nl,
+		write('Os dias passaram e nada de sua mamãe Lobo-Guará. Você está com muita fome, talvez seja a hora de Brachyurus seguir em busca de sua mãe.'), nl,
 		write('1. Sair em busca de sua mãe'),nl,
 		write('2. Esperar mais?'),nl,
 		write('Faça sua escolha:'),nl,
@@ -99,7 +103,8 @@ no3(2) :- write('Os dias passaram e nada de sua mamãe Lobo-Guará. Você está 
 	    no4(Alternative).
 
 /*  Pode puxar um novo nó a partir do no4(3) "Seguir o caminho sozinho"  */
-no4(1) :- write('Entáo Você começou a jornada em busca de sua mãe....'), nl,
+no4(1) :- nl,
+		write('Entáo Você começou a jornada em busca de sua mãe....'), nl,
 		write('O cerrado está tranquilo hoje. Mas você está com fome e perdido nos grandes campos do cerrado.'), nl,
 		write('Você encontra um bando de Emas, que conhecem bastante a região.'),nl,
 		write('As Emas amam matemática, mas não estão conseguindo resolver um desafio.'),nl,
@@ -111,7 +116,7 @@ no4(1) :- write('Entáo Você começou a jornada em busca de sua mãe....'), nl,
 		read(Alternative),
 	    no41(Alternative).
 
-no4(2) :- write('Você ficou perdido e com fome pelo Cerrado!'), nl,
+no4(2) :- nl, write('Você ficou perdido e com fome pelo Cerrado!'), nl,
 		write('Você perdeu !!'),nl,
 		write('Gostaria de jogar de novo ? (y,n)'),nl,
 		write('>'),
@@ -123,7 +128,7 @@ resposta_charada(195).
 startcharada(Tentativas):-
 	
 	Tentativas>0,
-	write('Pensei em um número e somei 35. Depois Tirei 17 e cheguei ao número 213. o numero que pensei foi ???'), nl,
+	nl, write('Pensei em um número e somei 35. Depois Tirei 17 e cheguei ao número 213. o numero que pensei foi ???'), nl,
 	write('Escreva a resposta >'),
 	resposta_charada(Respostacharada),
 	read(Guess),
@@ -139,7 +144,7 @@ startcharada(Tentativas):-
 /*  tela de derrota do no4 */
 startcharada(0):-
 
-	write('As Emas ficaram revoltadas com você, e te expulsaram da região '), nl,
+	nl, write('As Emas ficaram revoltadas com você, e te expulsaram da região '), nl,
 	write('Você morreu de fome '), nl,nl,
 	write('Você perdeu !!'),nl,
 	write('Gostaria de jogar de novo ? (y,n)'),nl,
@@ -147,12 +152,12 @@ startcharada(0):-
 	read(Desire),
 	play(Desire).
 
-no41(1) :- write('O desafio é:'), nl,
+no41(1) :- nl, write('O desafio é:'), nl,
 	startcharada(4). /*  Inicia charada com 4 tentativas */
 
 no41(2) :- no4(2).
 
-no5(1) :- write('As emas te parabenizam e lhe oferecem frutos, '), nl,
+no5(1) :- nl, write('As emas te parabenizam e lhe oferecem frutos, '), nl,
 		write('além de informar que existem dois locais onde sua mãe pode ter se abrigado da chuva. '), nl,
 		write('A caverna da terrível onça-pintada ou a tenda do caçador. '),nl,
 		write('1. Seguir na direção da caverna!'), nl,
@@ -162,7 +167,7 @@ no5(1) :- write('As emas te parabenizam e lhe oferecem frutos, '), nl,
 		read(Alternative),
 		no8(Alternative).
 
-no6(1) :- write('Ao começar a investigar a toca, um relâmpago ilumina algo no fundo... Parecem ser olhos...'), nl,
+no6(1) :- nl, write('Ao começar a investigar a toca, um relâmpago ilumina algo no fundo... Parecem ser olhos...'), nl,
 		write('1. Correr em direção ao objeto que brilhava'), nl,
 		write('2. Fugir da toca'), nl,
 		write('Faça sua escolha:'),nl,
@@ -170,17 +175,17 @@ no6(1) :- write('Ao começar a investigar a toca, um relâmpago ilumina algo no 
 	    read(Alternative),
 		  no7(Alternative).
 
-no6(2) :- write('Você consegue dormir bastante...'), nl,
+no6(2) :- nl, write('Você consegue dormir bastante...'), nl,
     no3(2).
 
 /*  Continuar no daqui */
-no7(1) :- write('Continua...'), nl,
+no7(1) :- nl, write('Continua...'), nl,
     read(Alternative),
 		play(y).
 
 no7(2) :- no4(1).
 
-no8(1) :- write('No caminho da caverna da onça-pintada, '), nl,
+no8(1) :- nl, write('No caminho da caverna da onça-pintada, '), nl,
  	  	write('você se depara com o cachorro caramelo, '), nl,
 		write('famoso por ser o campeão do torneio anual de borogodobol na selva. '), nl,
 		write('Porém o cachorro está com um galho de uma árvore em cima de suas patas traseiras, '), nl,
@@ -192,7 +197,7 @@ no8(1) :- write('No caminho da caverna da onça-pintada, '), nl,
 	    read(Alternative),
 		  no9(Alternative).
 
-no8(2) :- write('No caminho da tenda do caçador'), nl,
+no8(2) :- nl, write('No caminho da tenda do caçador'), nl,
 		write('você se depara com o tatu canastra, '), nl,
 		write('famoso por seus truques e artimanhas. '), nl,
 		write('Porém o tatu está com problemas... '), nl,
@@ -205,7 +210,7 @@ no8(2) :- write('No caminho da tenda do caçador'), nl,
 	    read(Alternative),
 	    no10(Alternative).
 
-no9(1) :- write('O cachorro caramelo fica muito grato pela sua ajuda, '), nl,
+no9(1) :- nl, write('O cachorro caramelo fica muito grato pela sua ajuda, '), nl,
  	  	write('porém não sabe nada sobre sua mãe, mas diz que para retribuir irá te acompanhar até a caverna da onça-pintada. '), nl,
 		write('Passado algum tempo de caminhada, próximo a caverna da onça-pintada são encontradas pegadas de lobo-guará.'), nl,
 		write('Porém uma ventania forte acontece e as pegadas somem, '), nl,
@@ -217,7 +222,7 @@ no9(1) :- write('O cachorro caramelo fica muito grato pela sua ajuda, '), nl,
 	    read(Alternative),
 		  no11(Alternative).
 
-no9(2) :- write('Passado algum tempo de caminhada, próximo a caverna da onça-pintada são encontradas pegadas de lobo-guará.'), nl,
+no9(2) :- nl, write('Passado algum tempo de caminhada, próximo a caverna da onça-pintada são encontradas pegadas de lobo-guará.'), nl,
 		write('Porém uma ventania forte acontece e as pegadas somem, '), nl,
 		write('infelizmente o seu faro não é bom suficiente para acompanhar o cheiro.'), nl,
 		write('1. Seguir em direção da caverna.'), nl,
@@ -228,7 +233,7 @@ no9(2) :- write('Passado algum tempo de caminhada, próximo a caverna da onça-p
 	    no12(Alternative).
 
 /*  Continuar no daqui se quiser ou deixar o tatu como otario */
-no10(1) :- write('Ao ajudar o tatu canastra, ele nota o resto das suas frutas em seu bolso e as pega para si,'), nl,
+no10(1) :- nl, write('Ao ajudar o tatu canastra, ele nota o resto das suas frutas em seu bolso e as pega para si,'), nl,
 		write('Quando você percebe ele já entrou em sua toca e trancou a porta. '), nl,
 		write('Então você segue caminho, mas fica com fome e morre!'), nl,
 		write('Você perdeu!!'),nl,
@@ -237,7 +242,7 @@ no10(1) :- write('Ao ajudar o tatu canastra, ele nota o resto das suas frutas em
 		read(Desire),
 		play(Desire).
 
-no10(2) :- write('Ao seguir em frente o tatu te vê e grita por sua ajuda. '), nl,
+no10(2) :- nl, write('Ao seguir em frente o tatu te vê e grita por sua ajuda. '), nl,
 		write('1. Seguir em frente mesmo assim.'), nl,
 		write('2. Ajudar o tatu canastra.'),nl,
 		write('Faça sua escolha:'),nl,
@@ -245,7 +250,7 @@ no10(2) :- write('Ao seguir em frente o tatu te vê e grita por sua ajuda. '), n
 	    read(Alternative),
 	    no14(Alternative).
 
-no11(1) :- write('O cachorro caramelo segue os rastros até uma entrada secreta da caverna. '), nl,
+no11(1) :- nl, write('O cachorro caramelo segue os rastros até uma entrada secreta da caverna. '), nl,
  	  	write('Então o cachorro pede desculpas e fala que só te acompanhará até aquele ponto porque tem muito medo da onça-pintada. '), nl,
 		write('Vocês se despedem e ao entrar na caverna você...'), nl,
 		write('1. Grita por sua mãe.'), nl,
@@ -257,7 +262,7 @@ no11(1) :- write('O cachorro caramelo segue os rastros até uma entrada secreta 
 
 /*  Juntei os nos aqui, mas se quiserem dar uma vantagem para o usuario que ajudou e seguiu o 
 cachorro caramelo continuar no daqui com mais dificuldade */
-no11(2) :- write('Ao chegar na entrada da caverna sozinho e assustado você não vê nem sinal da onça-pintada.'), nl,
+no11(2) :- nl, write('Ao chegar na entrada da caverna sozinho e assustado você não vê nem sinal da onça-pintada.'), nl,
 		write('Ao entrar na caverna você...'), nl,
 		write('1. Grita por sua mãe.'), nl,
 		write('2. Segue furtivamente.'), nl,
@@ -270,7 +275,7 @@ no12(1) :- no11(2).
 
 no12(2) :- no8(2).
 
-no13(1) :- write('A onça-pintada que estava escondida dormindo te ouviu e te transformou em pedacinhos!'), nl,
+no13(1) :- nl, write('A onça-pintada que estava escondida dormindo te ouviu e te transformou em pedacinhos!'), nl,
 		write('Você perdeu!!'),nl,
 		write('Gostaria de jogar de novo ? (y,n)'),nl,
 		write('>'),
@@ -278,7 +283,7 @@ no13(1) :- write('A onça-pintada que estava escondida dormindo te ouviu e te tr
 		play(Desire).
 
 /*  Continuar no daqui */
-no13(2) :- write('Ao caminhar furtivamente pela caverna...'), nl,
+no13(2) :- nl, write('Ao caminhar furtivamente pela caverna...'), nl,
 		write('1. ...'), nl,
 		write('2. ...'), nl,
 		write('Faça sua escolha:'),nl,
@@ -289,7 +294,7 @@ no13(2) :- write('Ao caminhar furtivamente pela caverna...'), nl,
 		*/
 
 /*  Continuar no daqui */
-no14(1) :- write('Ao seguir em frente...'), nl,
+no14(1) :- nl, write('Ao seguir em frente...'), nl,
 		write('1. ...'), nl,
 		write('2. ...'), nl,
 		write('Faça sua escolha:'),nl,
