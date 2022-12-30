@@ -77,11 +77,18 @@ no2(2) :- write('A chuva está muito forte e os perigos são muitos.Brachyurus e
 
 /*  Você consegue forçar a ida pra qualquer nó, olhe a linha 55  */
 no3(1) :- write('INFO SOBRE LOBOS GUARÁ'), nl,
- 	    write('1 Esperar mamãe'),nl,
+ 	  write('Apesar do porte imponente e da alcunha de “lobo”, é tímido, solitário e praticamente inofensivo,'), nl,
+		write('preferindo manter distância de populações humanas.'), nl,
+		write('Usa suas presas para se alimentar de pequenos animais'), nl,
+    write('como roedores, tatus e perdizes, além de frutos variados do Cerrado,'), nl,
+    write('como o araticum e a lobeira (Solanum lycocarpum), alimento muito consumido pelo guará.'), nl,
+    write('Faça sua escolha : '), nl,
+		write('1 Investigar toca'), nl,
+		write('2 Tentar dormir'), nl,
 		write('Faça sua escolha'),nl,
 		write('>'),
-	    read(Desire),
-	    no3(2).
+	    read(Alternative),
+		  no6(Alternative).
 
 no3(2) :- write('Os dias passaram e nada de sua mamãe Lobo-Guará. Você está com muita fome, talvez seja a hora de Brachyurus seguir em busca de sua mãe.'), nl,
 		write('1 Sair em busca de sua mãe'),nl,
@@ -150,9 +157,14 @@ no5(0) :- write('Continua...'), nl,
 		read(Desire),
 		play(y).
 
+no6(1) :- write('Ao começar a investigar a toca, um relâmpago ilumina algo no fundo... Parecem ser olhos...'), nl,
+    write('Faça sua escolha : '), nl,
+		write('1 Correr em direção ao objeto que brilhava'), nl,
+		write('2 Fugir da toca'), nl,
+		write('Faça sua escolha'),nl,
+		write('>'),
+	    read(Alternative),
+		  no5(Alternative).
 
-
-
-
-
-
+no6(2) :- write('Você consegue dormir bastante...'), nl,
+    no3(2).
