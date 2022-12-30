@@ -45,7 +45,7 @@ Por fim, pressione _enter_ caso queira retornar ao menu. Boa sorte!
 Na tela de menú, o jogador pode digitar:<br>
 **1**, para entender sobre a história do jogo;<br>
 **2**, para visualizar o tutorial in-game;<br>
-**3**, para iniciar o jogo, e<br>
+**3**, para iniciar o jogo e<br>
 **4**, para sair do jogo.
 
 ## Vídeo
