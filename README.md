@@ -30,22 +30,27 @@ O andamento do jogo e a história final são diretamente influenciados pelas dec
 ## Instalação 
 **Linguagens**: Prolog<br>
 **Tecnologias**: VS Code e Prolog<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-Insira um manual ou um script para auxiliar ainda mais.
-Gifs animados e outras ilustrações são bem-vindos!
+Para rodar a aplicação, basta digitar no terminal o comando:
+```c
+swipl -s Brachyurus.pl
+```
+Em seguida, digite:
+```c
+play.
+```
 
 ## Uso 
 ### Como jogar Brachyurus?
 Avance pela história selecionando uma das opções disponíveis, a fim de sobreviver nessa incrível jornada!
 Cada alternativa será representada por um número inteiro (1, 2, 3, 4...), basta escolher e digitar no terminal.
-Digite sempre o número da alternativa seguido por um ponto final. Ex: 2.
+Além disso, **é importante que o número da alternativa esteja acompanhado por um ponto final.** Ex: 2.
 Por fim, pressione _enter_ caso queira retornar ao menu. Boa sorte!
 
 ### Menú
 Na tela de menú, o jogador pode digitar:<br>
-**1**, para entender sobre a história do jogo;<br>
+**1**, para iniciar o jogo;<br>
 **2**, para visualizar o tutorial in-game;<br>
-**3**, para iniciar o jogo e<br>
+**3**, para entender sobre a história do jogo e<br>
 **4**, para sair do jogo.
 
 ## Vídeo
