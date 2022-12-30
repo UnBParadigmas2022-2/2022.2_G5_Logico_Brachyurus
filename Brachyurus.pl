@@ -92,7 +92,7 @@ no3(1) :- write('INFO SOBRE LOBOS GUARÁ'), nl,
 
 no3(2) :- write('Os dias passaram e nada de sua mamãe Lobo-Guará. Você está com muita fome, talvez seja a hora de Brachyurus seguir em busca de sua mãe.'), nl,
 		write('1 Sair em busca de sua mãe'),nl,
-		write('2 Esperar mais e morrer ?'),nl,
+		write('2 Esperar mais?'),nl,
 		write('Faça sua escolha'),nl,
 		write('>'),
 	    read(Alternative),
