@@ -173,7 +173,7 @@ no6(1) :- write('Ao começar a investigar a toca, um relâmpago ilumina algo no 
 no6(2) :- write('Você consegue dormir bastante...'), nl,
     no3(2).
 
-/*  Criar novo no a partir daqui */
+/*  Continuar no daqui */
 no7(1) :- write('Continua...'), nl,
     read(Alternative),
 		play(y).
@@ -227,6 +227,24 @@ no9(2) :- write('Passado algum tempo de caminhada, próximo a caverna da onça-p
 	    read(Alternative),
 	    no12(Alternative).
 
+/*  Continuar no daqui se quiser ou deixar o tatu como otario */
+no10(1) :- write('Ao ajudar o tatu canastra, ele nota o resto das suas frutas em seu bolso e as pega para si,'), nl,
+		write('Quando você percebe ele já entrou em sua toca e trancou a porta. '), nl,
+		write('Então você segue caminho, mas fica com fome e morre!'), nl,
+		write('Você perdeu!!'),nl,
+		write('Gostaria de jogar de novo ? (y,n)'),nl,
+		write('>'),
+		read(Desire),
+		play(Desire).
+
+no10(2) :- write('Ao seguir em frente o tatu te vê e grita por sua ajuda. '), nl,
+		write('1. Seguir em frente mesmo assim.'), nl,
+		write('2. Ajudar o tatu canastra.'),nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	    read(Alternative),
+	    no14(Alternative).
+
 no11(1) :- write('O cachorro caramelo segue os rastros até uma entrada secreta da caverna. '), nl,
  	  	write('Então o cachorro pede desculpas e fala que só te acompanhará até aquele ponto porque tem muito medo da onça-pintada. '), nl,
 		write('Vocês se despedem e ao entrar na caverna você...'), nl,
@@ -237,6 +255,8 @@ no11(1) :- write('O cachorro caramelo segue os rastros até uma entrada secreta 
 	    read(Alternative),
 		  no13(Alternative).
 
+/*  Juntei os nos aqui, mas se quiserem dar uma vantagem para o usuario que ajudou e seguiu o 
+cachorro caramelo continuar no daqui com mais dificuldade */
 no11(2) :- write('Ao chegar na entrada da caverna sozinho e assustado você não vê nem sinal da onça-pintada.'), nl,
 		write('Ao entrar na caverna você...'), nl,
 		write('1. Grita por sua mãe.'), nl,
@@ -244,8 +264,39 @@ no11(2) :- write('Ao chegar na entrada da caverna sozinho e assustado você não
 		write('Faça sua escolha:'),nl,
 		write('>'),
 	    read(Alternative),
-	    no14(Alternative).
+	    no13(Alternative).
 
 no12(1) :- no11(2).
 
 no12(2) :- no8(2).
+
+no13(1) :- write('A onça-pintada que estava escondida dormindo te ouviu e te transformou em pedacinhos!'), nl,
+		write('Você perdeu!!'),nl,
+		write('Gostaria de jogar de novo ? (y,n)'),nl,
+		write('>'),
+		read(Desire),
+		play(Desire).
+
+/*  Continuar no daqui */
+no13(2) :- write('Ao caminhar furtivamente pela caverna...'), nl,
+		write('1. ...'), nl,
+		write('2. ...'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+		/* 
+	    read(Alternative),
+	    no15(Alternative).
+		*/
+
+/*  Continuar no daqui */
+no14(1) :- write('Ao seguir em frente...'), nl,
+		write('1. ...'), nl,
+		write('2. ...'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	    /* 
+	    read(Alternative),
+	    no16(Alternative).
+		*/
+
+no14(2) :- no10(1).
