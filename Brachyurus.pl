@@ -360,4 +360,20 @@ no15(2) :- nl, write('Você come a lobeira, estava deliciosa e consegue se senti
 		write('Faça sua escolha:'),nl,
 		write('>'),
 	  read(Alternative),
-    /*  no16(Alternative). */
+    no16(Alternative).
+
+no16(1) :- nl, write('Você se escondeu em uma parte mais escura da caverna e ficou o mais encolhido possível... Você vê a Onça-Pintada seguindo o cheiro de algo, porém ela para onde estava a lobeira, cheira bastante, porém segue até a entrada da caverna...'), nl,
+		write('1. Atacar a Onça-Pintada pelas costas'), nl,
+		write('2. Esperar para ver o que acontece'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	  read(Alternative),
+    /*  no17(Alternative). */
+
+no16(2) :- nl, write('A Onça-Pintada ouve os seus gritos e vem correndo te atacar, você não teve a menor chance...'), nl,
+		write('Você morreu pelo ataque da Onça! '), nl,nl,
+    write('Você perdeu !!'),nl,
+    write('Gostaria de jogar de novo ? (y,n)'),nl,
+    write('>'),
+    read(Desire),
+    play(Desire).
