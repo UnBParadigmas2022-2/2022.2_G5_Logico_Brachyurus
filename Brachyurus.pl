@@ -324,16 +324,14 @@ no13(1) :- nl, write('A onça-pintada que estava escondida dormindo te ouviu e t
 		read(Desire),
 		play(Desire).
 
-/*  Continuar no daqui */
-no13(2) :- nl, write('Ao caminhar furtivamente pela caverna...'), nl,
-		write('1. ...'), nl,
-		write('2. ...'), nl,
+no13(2) :- nl, write('Ao caminhar furtivamente pela caverna...Você ouve alguns barulhos, então começa a seguir os sons... Enquanto seguia, acabou encontrando uma lobeira...'), nl,
+		write('1. Seguir investigando sons'), nl,
+		write('2. Comer lobeira'), nl,
 		write('Faça sua escolha:'),nl,
 		write('>'),
-		/* 
-	    read(Alternative),
-	    no15(Alternative).
-		*/
+	  read(Alternative),
+	  no15(Alternative).
+		
 
 /*  Continuar no daqui */
 no14(1) :- nl, write('Ao seguir em frente...'), nl,
