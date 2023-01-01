@@ -395,3 +395,13 @@ no17(2) :- nl, write('A Onça seguiu para fora da caverna, você então decide t
 		write('>'),
 	  read(Alternative),
     /*  no18(Alternative). */
+
+no18(1) :- no8(2).
+
+no18(2) :- nl, write('Você esperou tanto que a Onça voltou e você não teve como fugir...'), nl,
+		write('Você morreu pelo ataque da Onça! '), nl,nl,
+    write('Você perdeu !!'),nl,
+    write('Gostaria de jogar de novo ? (y,n)'),nl,
+    write('>'),
+    read(Desire),
+    play(Desire).
