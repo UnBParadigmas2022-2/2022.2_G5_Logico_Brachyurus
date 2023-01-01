@@ -346,3 +346,18 @@ no14(1) :- nl, write('Ao seguir em frente...'), nl,
 
 no14(2) :- no10(1).
 
+no15(1) :- nl, write('Você está fraco, seus sentidos começam a ficar confusos... Até que...'), nl,
+		write('Você morreu de fome '), nl,nl,
+    write('Você perdeu !!'),nl,
+    write('Gostaria de jogar de novo ? (y,n)'),nl,
+    write('>'),
+    read(Desire),
+    play(Desire).
+
+no15(2) :- nl, write('Você come a lobeira, estava deliciosa e consegue se sentir mais forte! Os barulhos persistem e parecem estar se aproximando.'), nl,
+		write('1. Tentar se esconder na caverna'), nl,
+		write('2. Gritar pedindo socorro'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	  read(Alternative),
+    /*  no16(Alternative). */
