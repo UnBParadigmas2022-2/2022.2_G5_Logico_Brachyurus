@@ -245,16 +245,14 @@ no13(1) :- nl, write('A onça-pintada que estava escondida dormindo te ouviu e t
 		read(Desire),
 		play(Desire).
 
-/*  Continuar no daqui */
-no13(2) :- nl, write('Ao caminhar furtivamente pela caverna...'), nl,
-		write('1. ...'), nl,
-		write('2. ...'), nl,
+no13(2) :- nl, write('Ao caminhar furtivamente pela caverna...Você ouve alguns barulhos, então começa a seguir os sons... Enquanto seguia, acabou encontrando uma lobeira...'), nl,
+		write('1. Seguir investigando sons'), nl,
+		write('2. Comer lobeira'), nl,
 		write('Faça sua escolha:'),nl,
 		write('>'),
-		/* 
-	    read(Alternative),
-	    no15(Alternative).
-		*/
+	  read(Alternative),
+	  no15(Alternative).
+		
 
 /*  Continuar no daqui */
 no14(1) :- nl, write('Ao seguir em frente...'), nl,
@@ -269,3 +267,62 @@ no14(1) :- nl, write('Ao seguir em frente...'), nl,
 
 no14(2) :- no10(1).
 
+no15(1) :- nl, write('Você está fraco, seus sentidos começam a ficar confusos... Até que...'), nl,
+		write('Você morreu de fome '), nl,nl,
+    write('Você perdeu !!'),nl,
+    write('Gostaria de jogar de novo ? (y,n)'),nl,
+    write('>'),
+    read(Desire),
+    play(Desire).
+
+no15(2) :- nl, write('Você come a lobeira, estava deliciosa e consegue se sentir mais forte! Os barulhos persistem e parecem estar se aproximando.'), nl,
+		write('1. Tentar se esconder na caverna'), nl,
+		write('2. Gritar pedindo socorro'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	  read(Alternative),
+    no16(Alternative).
+
+no16(1) :- nl, write('Você se escondeu em uma parte mais escura da caverna e ficou o mais encolhido possível... Você vê a Onça-Pintada seguindo o cheiro de algo, porém ela para onde estava a lobeira, cheira bastante, porém segue até a entrada da caverna...'), nl,
+		write('1. Atacar a Onça-Pintada pelas costas'), nl,
+		write('2. Esperar para ver o que acontece'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	  read(Alternative),
+    no17(Alternative).
+
+no16(2) :- nl, write('A Onça-Pintada ouve os seus gritos e vem correndo te atacar, você não teve a menor chance...'), nl,
+		write('Você morreu pelo ataque da Onça! '), nl,nl,
+    write('Você perdeu !!'),nl,
+    write('Gostaria de jogar de novo ? (y,n)'),nl,
+    write('>'),
+    read(Desire),
+    play(Desire).
+
+no17(1) :- nl, write('Você tentou atacar a Onça-Pintada pelas costas, porém ela conseguiu ouvir seu pulo e desviou do seu ataque, você caiu fora da caverna... '), nl,
+		write('A Onça-Pintada vem em sua direção porém, uma sombra aparece sobre você… É sua mamãe e o cachorro caramelo! '), nl,
+    write('A Onça é muito poderosa, porém 3 adversários já parece ser um número grande para ela, então ela volta para caverna... '), nl,nl,
+    write('Você GANHOU !!'),nl,
+    write('Gostaria de jogar de novo ? (y,n)'),nl,
+    write('>'),
+    read(Desire),
+    play(Desire).
+
+no17(2) :- nl, write('A Onça seguiu para fora da caverna, você então decide terminar de investigar a caverna... Porém não encontra mais ninguém...'), nl,
+		write('Opa! Uma pegada de lobo-guará!! Provavelmente sua mãe esteve por aqui há pouco tempo!'), nl,
+    write('1. Esperar um tempo para sair da caverna e seguir em direção à tenda'), nl,
+		write('2. Esperar que sua mãe apareça novamente na caverna por tempo indeterminado'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	  read(Alternative),
+    /*  no18(Alternative). */
+
+no18(1) :- no8(2).
+
+no18(2) :- nl, write('Você esperou tanto que a Onça voltou e você não teve como fugir...'), nl,
+		write('Você morreu pelo ataque da Onça! '), nl,nl,
+    write('Você perdeu !!'),nl,
+    write('Gostaria de jogar de novo ? (y,n)'),nl,
+    write('>'),
+    read(Desire),
+    play(Desire).
