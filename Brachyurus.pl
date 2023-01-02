@@ -253,17 +253,13 @@ no13(2) :- nl, write('Ao caminhar furtivamente pela caverna...Você ouve alguns 
 	  read(Alternative),
 	  no15(Alternative).
 		
-
-/*  Continuar no daqui */
-no14(1) :- nl, write('Ao seguir em frente...'), nl,
-		write('1. ...'), nl,
-		write('2. ...'), nl,
+no14(1) :- nl, write('Ao seguir em frente... Você se depara com um enorme incêndio causado pelos caçadores.'), nl,
+		write('1. Seguir em direção ao incêncio para procurar pela sua mãe.'), nl,
+		write('2. Ignorar o incêndio e dar meia volta.'), nl,
 		write('Faça sua escolha:'),nl,
 		write('>'),
-	    /* 
 	    read(Alternative),
-	    no16(Alternative).
-		*/
+	    no19(Alternative).
 
 no14(2) :- no10(1).
 
@@ -326,3 +322,25 @@ no18(2) :- nl, write('Você esperou tanto que a Onça voltou e você não teve c
     write('>'),
     read(Desire),
     play(Desire).
+
+
+no19(1) :- nl, write('Ao entrar no incêndio...A visão está baixa por conta da fumaça, você não vê sinais da sua mãe, porém avista um sagui preso numa árvore em chamas.'), nl,
+		write('1. Salvar a vida do sagui.'), nl,
+		write('2. Dar meia volta e sair do incêndio.'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	    read(Alternative),
+	    no20(Alternative).
+
+no19(2) :- no10(2).
+
+no20(1) :- nl, write('Você salva bravamente o sagui que acaba de cair de um tronco flamejante e iria se esborrachar no chão.'), nl,
+		write('1. Perguntar se o sagui viu sua mãe.'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	    read(Alternative).
+	    /* no21(Alternative). */
+
+no20(2) :- no10(2).
+
+/* no21(1) :-  chamar aqui algum nó que ele está perto de encontrar a mãe*/
