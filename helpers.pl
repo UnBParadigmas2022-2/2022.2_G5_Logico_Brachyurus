@@ -1,6 +1,35 @@
-:- module(helpers, [resposta_charada/1, startcharada/1]).
+:- module(helpers, [resposta_charada/1, startcharada/1,
+    inicializar_contador/0,incrementar_contador/0,decrementar_contador/0,verificar_contador/0]).
 
 use_module(menu).
+
+:- dynamic contador/1.
+
+inicializar_contador :-
+    retractall(contador(_)),
+    assert(contador(0)).
+
+incrementar_contador :-
+    contador(ValorAtual),
+    NovoValor is ValorAtual + 1,
+    retract(contador(_)),
+    assert(contador(NovoValor)).
+
+decrementar_contador :-
+    contador(ValorAtual),
+    NovoValor is ValorAtual - 1,
+    retract(contador(_)),
+    assert(contador(NovoValor)).
+
+verificar_contador :-
+    contador(Valor),
+    ( Valor =:= 0 ->
+        write("Você foi um lobo-guará neutro!"), nl
+    ; Valor > 0 ->
+        write("Você foi um lobo-guará bom!"), nl
+    ; Valor < 0 ->
+        write("Você foi um lobo-guará mal!"), nl
+    ).
 
 resposta_charada(195).
 

@@ -1,34 +1,6 @@
 :- use_module(menu).
 :- use_module(helpers).
 
-:- dynamic contador/1.
-
-inicializar_contador :-
-    retractall(contador(_)),
-    assert(contador(0)).
-
-incrementar_contador :-
-    contador(ValorAtual),
-    NovoValor is ValorAtual + 1,
-    retract(contador(_)),
-    assert(contador(NovoValor)).
-
-decrementar_contador :-
-    contador(ValorAtual),
-    NovoValor is ValorAtual - 1,
-    retract(contador(_)),
-    assert(contador(NovoValor)).
-
-verificar_contador :-
-    contador(Valor),
-    ( Valor =:= 0 ->
-        write("Você foi um lobo-guará neutro!"), nl
-    ; Valor > 0 ->
-        write("Você foi um lobo-guará bom!"), nl
-    ; Valor < 0 ->
-        write("Você foi um lobo-guará mal!"), nl
-    ).
-
 /*  Cada nó vai ter 2 paradas que vem das alternativas de cima, ou seja, se o menu tem 2 opções e chama o nó1, precisa ter 2 nós1  */
 
 no1(1) :- 		
