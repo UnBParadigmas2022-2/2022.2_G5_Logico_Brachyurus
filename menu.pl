@@ -1,5 +1,7 @@
 :- module(menu, [play/0, play/1]).
 
+:- discontiguous(play/1).
+
 play(n) :- write('Obrigado por jogar Brachyurus'), nl, !.
 
 play :-	write('____________________________________________________________________________________'),nl,
