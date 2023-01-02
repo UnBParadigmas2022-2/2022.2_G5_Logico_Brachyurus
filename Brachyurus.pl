@@ -1,3 +1,5 @@
+:- use_module(menu).
+
 :- dynamic contador/1.
 
 inicializar_contador :-
@@ -25,31 +27,6 @@ verificar_contador :-
     ; Valor < 0 ->
         write("Você foi um lobo-guará mal!"), nl
     ).
-
-play(n) :- write('Obrigado por jogar Brachyurus'), nl, !.
-
-play :-	write('____________________________________________________________________________________'),nl,
-    write('                                                                                    '),nl,
-    write('██████╗ ██████╗  █████╗  ██████╗██╗  ██╗██╗   ██╗██╗   ██╗██████╗ ██╗   ██╗███████╗'),nl,
-    write('██╔══██╗██╔══██╗██╔══██╗██╔════╝██║  ██║╚██╗ ██╔╝██║   ██║██╔══██╗██║   ██║██╔════╝'),nl,
-    write('██████╔╝██████╔╝███████║██║     ███████║ ╚████╔╝ ██║   ██║██████╔╝██║   ██║███████╗'),nl,
-    write('██╔══██╗██╔══██╗██╔══██║██║     ██╔══██║  ╚██╔╝  ██║   ██║██╔══██╗██║   ██║╚════██║'),nl,
-    write('██████╔╝██║  ██║██║  ██║╚██████╗██║  ██║   ██║   ╚██████╔╝██║  ██║╚██████╔╝███████║'),nl,
-    write('╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝'),nl,
-    write('                                                                                    '),nl,
-    write('____________________________________________________________________________________'),nl,  
-    write('                                                                                    '),nl,
-    write('                                   MENU                                             '),nl,
-    write('____________________________________________________________________________________'),nl,
-    write('                                                                                    '),nl,
-    write('                             1. Jogar'),nl,
-    write('                             2. Tutorial'),nl,
-    write('                             3. História'),nl,
-    write('                             4. Sair'),nl,
-	read(Alternative),
-	no1(Alternative).
-
-play(y) :- play.
 
 /*  Cada nó vai ter 2 paradas que vem das alternativas de cima, ou seja, se o menu tem 2 opções e chama o nó1, precisa ter 2 nós1  */
 
