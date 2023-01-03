@@ -334,13 +334,15 @@ no19(1) :- nl, write('Ao entrar no incêndio...A visão está baixa por conta da
 
 no19(2) :- no10(2).
 
-no20(1) :- nl, write('Você salva bravamente o sagui que acaba de cair de um tronco flamejante e iria se esborrachar no chão.'), nl,
+no20(1) :- incrementar_contador,
+		nl, write('Você salva bravamente o sagui que acaba de cair de um tronco flamejante e iria se esborrachar no chão.'), nl,
 		write('1. Perguntar se o sagui viu sua mãe.'), nl,
 		write('Faça sua escolha:'),nl,
 		write('>'),
 	    read(Alternative).
 	    /* no21(Alternative). */
 
-no20(2) :- no10(2).
+no20(2) :- decrementar_contador,
+		no10(2).
 
 /* no21(1) :-  chamar aqui algum nó que ele está perto de encontrar a mãe*/
