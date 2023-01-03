@@ -133,10 +133,15 @@ no6(1) :- nl, write('Ao começar a investigar a toca, um relâmpago ilumina algo
 no6(2) :- nl, write('Você consegue dormir bastante...'), nl,
     no3(2).
 
-/*  Continuar no daqui */
-no7(1) :- nl, write('Continua...'), nl,
-    read(Alternative),
-		play(y).
+no7(1) :- nl, write('Ao se aproximar, Brachyurus pôde identificar o que a forma brilhante era'), nl, nl,
+        write('Se tratava de Cuca!'), nl, nl,
+        write('Sua vizinha coruja que informou ter a casa destruída pela tempestade'), nl, nl,
+        write('1. Afugentar Cuca'), nl,
+        write('2. Oferecer abrigo a Cuca'), nl,
+        write('3. Chorar de saudade da mãe'), nl,
+        write('>'),
+	    read(Alternative),
+		no22(Alternative).
 
 no7(2) :- no4(1).
 
@@ -346,3 +351,51 @@ no20(2) :- decrementar_contador,
 		no10(2).
 
 /* no21(1) :-  chamar aqui algum nó que ele está perto de encontrar a mãe*/
+
+no22(1) :- nl, write('Seu menino mal educado.'), nl,
+        write('Não conte comigo para sua jornada'), nl,
+        write('E boa sorte achando sua mãe sozinho!'), nl, nl,
+        no3(2).
+	
+no22(2) :- nl, write('Obrigada, garoto'), nl,
+        write('Pode contar comigo para sua jornada!'), nl,
+        write('A propósito, vi sua mãe fugindo ainda ontem em direção à cidade abandonada'), nl,
+        write('1. Questionar Cuca a respeito da informação'), nl,
+        write('2. Pedir porfavorzinho para ela ir em seu lugar'), nl,
+        read(Alternative),
+        no23(Alternative).
+	
+no22(3) :- nl, write('Chorar lava a alma, mas não vai trazer sua mãe de volta'), nl,
+        write('1. Afugentar Cuca'), nl,
+        write('2. Oferecer abrigo a Cuca'), nl,
+        write('3. Chorar de saudade da mãe'), nl,
+        write('>'),
+    	read(Alternative),
+    	no22(Alternative).
+	
+no23(1) :- nl, write('Isso mesmo. Algumas horas atrás vi sua mãe saindo da toca às pressas'), nl,
+        write('E então, vai querer companhia na sua busca?'), nl,
+        write('1. Sim'), nl,
+    	write('2. Não'), nl,
+    	write('3. Aguardar mais a volta de mamãe'), nl,
+    	write('>'),
+    	read(Alternative),
+    	no25(Alternative).
+
+no23(2) :- nl, write('Eu até te acompanharia, mas você é medroso demais'), nl,
+        write('1. Aguardar mais a volta de mamãe'), nl,
+    	write('2. Ir sozinho e provar cuca o contrário'), nl,
+    	write('>'),
+    	read(Alternative),
+    	no24(Alternative).
+	
+no24(1) :- no3(2).
+
+no24(2) :- nl, write('Não preciso da companhia de ninguém. vou sozinho mesmo.'), nl,
+        no26.
+    
+no25(1) :- nl, write('Ao seguir em frente...'), nl,
+		write('1. ...'), nl,
+		write('2. ...'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>').
