@@ -352,16 +352,16 @@ no20(2) :- decrementar_contador,
 
 /* no21(1) :-  chamar aqui algum nó que ele está perto de encontrar a mãe*/
 
+/*decrementar aqui*/
 no22(1) :- nl, write('Seu menino mal educado.'), nl,
         write('Não conte comigo para sua jornada'), nl,
         write('E boa sorte achando sua mãe sozinho!'), nl, nl,
-        no3(2).
+        no4(1).
 	
 no22(2) :- nl, write('Obrigada, garoto'), nl,
-        write('Pode contar comigo para sua jornada!'), nl,
         write('A propósito, vi sua mãe fugindo ainda ontem em direção à cidade abandonada'), nl,
         write('1. Questionar Cuca a respeito da informação'), nl,
-        write('2. Pedir porfavorzinho para ela ir em seu lugar'), nl,
+        write('2. Mandar ela ir em seu lugar'), nl,
         read(Alternative),
         no23(Alternative).
 	
@@ -391,11 +391,21 @@ no23(2) :- nl, write('Eu até te acompanharia, mas você é medroso demais'), nl
 	
 no24(1) :- no3(2).
 
-no24(2) :- nl, write('Não preciso da companhia de ninguém. vou sozinho mesmo.'), nl,
-        no26.
+no24(2) :- nl, write('Não farei sua aventura por você, mas vou te acompanhar'),
+        no25(1).
     
-no25(1) :- nl, write('Ao seguir em frente...'), nl,
-		write('1. ...'), nl,
-		write('2. ...'), nl,
-		write('Faça sua escolha:'),nl,
-		write('>').
+no25(1) :- nl, write('No caminho da cidade você encontra Carlinhos, a Capivara!'), nl,
+		write('Conhecido por ser bastante amigável e guloso'), nl, nl,
+		write('Ele se aproxima vagarosamente e pede um pouco de comida em troca de informações sobre sua mãe')
+		write('1. Dar comida'), nl,
+		write('2. Poupar comida'),nl,
+		write('>'),
+		read(Alternative),
+		no26(Alternative).
+		
+no25(2) :-  nl, write('Não preciso da companhia de ninguém. vou sozinho mesmo.'), nl,
+        write('Mas estou com tanta fome...'), nl,
+        write('Vou me sentar um pouco aqui nessa sombra'), nl,
+        no15(1).
+
+no25(3) :- no3(2).
