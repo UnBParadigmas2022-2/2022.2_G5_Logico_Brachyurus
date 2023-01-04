@@ -5,19 +5,15 @@
 /*  Cada nó vai ter 2 paradas que vem das alternativas de cima, ou seja, se o menu tem 2 opções e chama o nó1, precisa ter 2 nós1  */
 
 no1(1) :- 		
-		write('Era uma noite chuvosa, o céu era preenchido por nuvens e a noite escura clareava ao estalar dos trovões e relâmpagos que cortavam o céu naquela fatídica noite.'), nl,
-		write('Foi nessas condições que acordou sozinho, Brachyurus !!!'), nl,
-		write('Um filhote dos incríveis Lobo-Guará, mas tinha um problema . . .'), nl,
-		write('Brachyurus estava sem sua mãe . . . Era uma noite dolorosa para esse filhote !!!'), nl,
-		write('Você está em sua toca, é uma noite escura, sorte que você enxerga bem a noite '), nl,
-		write('Faça sua escolha : '), nl,
-		write('1. Caminhar pela toca'), nl,
-		write('2. Sair da toca'), nl,
+		write('=> Selecione sua dificuldade:'), nl,
+		write('1. Fácil'), nl,
+		write('2. Médio'), nl,
+		write('3. Difícil'), nl,
 		write('Faça sua escolha:'),nl,
 		write('>'),
-		inicializar_contador,
 		read(Alternative),
-		no2(Alternative).
+		helpers:assert(dificuldade(Alternative)),
+		no1_1.
 
 no1(2) :- write('TUTORIAL. . .'), nl,
 	   tutorial,
@@ -40,6 +36,20 @@ no1(4) :- write('Você não gostaria de ajudar Brachyurus? (y, n)'), nl,
        	read(Desire),
 	    play(Desire).
 
+no1_1 :- 
+		write('Era uma noite chuvosa, o céu era preenchido por nuvens e a noite escura clareava ao estalar dos trovões e relâmpagos que cortavam o céu naquela fatídica noite.'), nl,
+		write('Foi nessas condições que acordou sozinho, Brachyurus !!!'), nl,
+		write('Um filhote dos incríveis Lobo-Guará, mas tinha um problema . . .'), nl,
+		write('Brachyurus estava sem sua mãe . . . Era uma noite dolorosa para esse filhote !!!'), nl,
+		write('Você está em sua toca, é uma noite escura, sorte que você enxerga bem a noite '), nl,
+		write('Faça sua escolha : '), nl,
+		write('1. Caminhar pela toca'), nl,
+		write('2. Sair da toca'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+		inicializar_contador,
+		read(Alternative),
+		no2(Alternative).
 
 no2(1) :- nl,
 		write('Tem um informativo na parede, Brachyurus nunca se atentou a isso . . .'), nl,
