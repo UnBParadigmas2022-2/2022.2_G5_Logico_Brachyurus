@@ -344,13 +344,14 @@ no20(1) :- incrementar_contador,
 		write('1. Perguntar se o sagui viu sua mãe.'), nl,
 		write('Faça sua escolha:'),nl,
 		write('>'),
-	    read(Alternative).
-	    /* no21(Alternative). */
+	    read(Alternative),
+	    no21(Alternative).
 
 no20(2) :- decrementar_contador,
 		no10(2).
 
-/* no21(1) :-  chamar aqui algum nó que ele está perto de encontrar a mãe*/
+no21(1) :- nl, write('O sagui disse que viu sua mamãe nos arredores da caverna, e para lá você vai...'),
+		no16(1).
 
 /*decrementar aqui*/
 no22(1) :- nl, write('Seu menino mal educado.'), nl,
