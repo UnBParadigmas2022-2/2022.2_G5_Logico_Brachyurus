@@ -359,7 +359,7 @@ no22(1) :- nl, write('Seu menino mal educado.'), nl,
         no4(1).
 	
 no22(2) :- nl, write('Obrigada, garoto'), nl,
-        write('A propósito, vi sua mãe fugindo ainda ontem em direção à cidade abandonada'), nl,
+        write('A propósito, vi sua mãe fugindo ainda ontem em direção à caverna da onça'), nl,
         write('1. Questionar Cuca a respeito da informação'), nl,
         write('2. Mandar ela ir em seu lugar'), nl,
         read(Alternative),
@@ -382,21 +382,15 @@ no23(1) :- nl, write('Isso mesmo. Algumas horas atrás vi sua mãe saindo da toc
     	read(Alternative),
     	no25(Alternative).
 
-no23(2) :- nl, write('Eu até te acompanharia, mas você é medroso demais'), nl,
-        write('1. Aguardar mais a volta de mamãe'), nl,
-    	write('2. Ir sozinho e provar cuca o contrário'), nl,
-    	write('>'),
-    	read(Alternative),
-    	no24(Alternative).
-	
-no24(1) :- no3(2).
-
-no24(2) :- nl, write('Não farei sua aventura por você, mas vou te acompanhar'),
+no23(2) :- nl, write('Não farei sua aventura por você, mas vou te acompanhar'), nl,
         no25(1).
+	
+no24(1) :- no4(2).
+
     
-no25(1) :- nl, write('No caminho da cidade você encontra Carlinhos, a Capivara!'), nl,
+no25(1) :- nl, write('No caminho você encontra Carlinhos, a Capivara!'), nl,
 		write('Conhecido por ser bastante amigável e guloso'), nl, nl,
-		write('Ele se aproxima vagarosamente e pede um pouco de comida em troca de informações sobre sua mãe')
+		write('Ele se aproxima vagarosamente e pede um pouco de comida em troca de informações sobre sua mãe'), nl,
 		write('1. Dar comida'), nl,
 		write('2. Poupar comida'),nl,
 		write('>'),
@@ -408,4 +402,6 @@ no25(2) :-  nl, write('Não preciso da companhia de ninguém. vou sozinho mesmo.
         write('Vou me sentar um pouco aqui nessa sombra'), nl,
         no15(1).
 
-no25(3) :- no3(2).
+no25(3) :- no4(2).
+
+no25(3) :- no4(2).
