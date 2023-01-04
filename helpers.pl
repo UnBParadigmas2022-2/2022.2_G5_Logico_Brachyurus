@@ -4,6 +4,7 @@
 use_module(menu).
 
 :- dynamic contador/1.
+:- dynamic dificuldade/1.
 
 inicializar_contador :-
     retractall(contador(_)),
@@ -60,3 +61,5 @@ startcharada(0):-
 	write('>'),
 	read(Desire),
 	play(Desire).
+
+:- export(dificuldade/1).
