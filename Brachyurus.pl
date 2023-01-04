@@ -1,4 +1,5 @@
 :- use_module(menu).
+:- use_module(tutorial).
 :- use_module(helpers).
 
 /*  Cada nó vai ter 2 paradas que vem das alternativas de cima, ou seja, se o menu tem 2 opções e chama o nó1, precisa ter 2 nós1  */
@@ -19,6 +20,7 @@ no1(1) :-
 		no2(Alternative).
 
 no1(2) :- write('TUTORIAL. . .'), nl,
+	   tutorial,
 	   play.
 	   
 no1(3) :- write('HISTÓRIA. . .'), nl,
@@ -284,7 +286,7 @@ no15(2) :- nl, write('Você come a lobeira, estava deliciosa e consegue se senti
 	  read(Alternative),
     no16(Alternative).
 
-no16(1) :- nl, write('Você se escondeu em uma parte mais escura da caverna e ficou o mais encolhido possível... Você vê a Onça-Pintada seguindo o cheiro de algo, porém ela para onde estava a lobeira, cheira bastante, porém segue até a entrada da caverna...'), nl,
+no16(1) :- nl, write('Você se escondeu em uma parte mais escura da caverna e ficou o mais encolhido possível... Você vê a Onça-Pintada seguindo o cheiro de algo, ela para onde estava a lobeira, cheira bastante, e segue até a entrada da caverna...'), nl,
 		write('1. Atacar a Onça-Pintada pelas costas'), nl,
 		write('2. Esperar para ver o que acontece'), nl,
 		write('Faça sua escolha:'),nl,
@@ -311,12 +313,13 @@ no17(1) :- nl, write('Você tentou atacar a Onça-Pintada pelas costas, porém e
 
 no17(2) :- nl, write('A Onça seguiu para fora da caverna, você então decide terminar de investigar a caverna... Porém não encontra mais ninguém...'), nl,
 		write('Opa! Uma pegada de lobo-guará!! Provavelmente sua mãe esteve por aqui há pouco tempo!'), nl,
-    write('1. Esperar um tempo para sair da caverna e seguir em direção à tenda'), nl,
+		write('1. Esperar um tempo para sair da caverna e seguir em direção à tenda'), nl,
 		write('2. Esperar que sua mãe apareça novamente na caverna por tempo indeterminado'), nl,
 		write('Faça sua escolha:'),nl,
 		write('>'),
-	  read(Alternative),
-    /*  no18(Alternative). */
+	  	read(Alternative).
+
+/*  no18(Alternative). */
 
 no18(1) :- no8(2).
 
@@ -344,13 +347,14 @@ no20(1) :- incrementar_contador,
 		write('1. Perguntar se o sagui viu sua mãe.'), nl,
 		write('Faça sua escolha:'),nl,
 		write('>'),
-	    read(Alternative).
-	    /* no21(Alternative). */
+	    read(Alternative),
+	    no21(Alternative).
 
 no20(2) :- decrementar_contador,
 		no10(2).
 
-/* no21(1) :-  chamar aqui algum nó que ele está perto de encontrar a mãe*/
+no21(1) :- nl, write('O sagui disse que viu sua mamãe nos arredores da caverna, e para lá você vai...'),
+		no16(1).
 
 /*decrementar aqui*/
 no22(1) :- nl, write('Seu menino mal educado.'), nl,
