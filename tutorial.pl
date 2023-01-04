@@ -1,3 +1,5 @@
+:- module(tutorial, [tutorial/0]).
+
 clearScreen():-
     write('\33\[2J'),
     write('\33\[2J').

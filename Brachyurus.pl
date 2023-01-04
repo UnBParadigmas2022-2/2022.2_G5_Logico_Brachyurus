@@ -1,4 +1,5 @@
 :- use_module(menu).
+:- use_module(tutorial).
 :- use_module(helpers).
 
 /*  Cada nó vai ter 2 paradas que vem das alternativas de cima, ou seja, se o menu tem 2 opções e chama o nó1, precisa ter 2 nós1  */
@@ -19,6 +20,7 @@ no1(1) :-
 		no2(Alternative).
 
 no1(2) :- write('TUTORIAL. . .'), nl,
+	   tutorial,
 	   play.
 	   
 no1(3) :- write('HISTÓRIA. . .'), nl,
