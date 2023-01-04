@@ -1,9 +1,10 @@
 :- module(helpers, [resposta_charada/1, startcharada/1,
-    inicializar_contador/0,incrementar_contador/0,decrementar_contador/0,verificar_contador/0]).
+    inicializar_contador/0,incrementar_contador/0,decrementar_contador/0,verificar_contador/0, fim_jogo/0]).
 
 use_module(menu).
 
 :- dynamic contador/1.
+:- dynamic dificuldade/1.
 
 inicializar_contador :-
     retractall(contador(_)),
@@ -60,3 +61,13 @@ startcharada(0):-
 	write('>'),
 	read(Desire),
 	play(Desire).
+
+fim_jogo :-
+	write('Você perdeu !!'),nl,
+	verificar_contador,
+	write('Gostaria de jogar de novo ? (y,n)'),nl,
+	write('>'),
+	read(Desire),
+	play(Desire).
+
+:- export(dificuldade/1).

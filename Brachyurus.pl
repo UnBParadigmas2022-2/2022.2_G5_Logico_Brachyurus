@@ -5,19 +5,15 @@
 /*  Cada nó vai ter 2 paradas que vem das alternativas de cima, ou seja, se o menu tem 2 opções e chama o nó1, precisa ter 2 nós1  */
 
 no1(1) :- 		
-		write('Era uma noite chuvosa, o céu era preenchido por nuvens e a noite escura clareava ao estalar dos trovões e relâmpagos que cortavam o céu naquela fatídica noite.'), nl,
-		write('Foi nessas condições que acordou sozinho, Brachyurus !!!'), nl,
-		write('Um filhote dos incríveis Lobo-Guará, mas tinha um problema . . .'), nl,
-		write('Brachyurus estava sem sua mãe . . . Era uma noite dolorosa para esse filhote !!!'), nl,
-		write('Você está em sua toca, é uma noite escura, sorte que você enxerga bem a noite '), nl,
-		write('Faça sua escolha : '), nl,
-		write('1. Caminhar pela toca'), nl,
-		write('2. Sair da toca'), nl,
+		write('=> Selecione sua dificuldade:'), nl,
+		write('1. Fácil'), nl,
+		write('2. Médio'), nl,
+		write('3. Difícil'), nl,
 		write('Faça sua escolha:'),nl,
 		write('>'),
-		inicializar_contador,
 		read(Alternative),
-		no2(Alternative).
+		helpers:assert(dificuldade(Alternative)),
+		no1_1.
 
 no1(2) :- write('TUTORIAL. . .'), nl,
 	   tutorial,
@@ -40,9 +36,23 @@ no1(4) :- write('Você não gostaria de ajudar Brachyurus? (y, n)'), nl,
        	read(Desire),
 	    play(Desire).
 
+no1_1 :- 
+		write('Era uma noite chuvosa, o céu era preenchido por nuvens e a noite escura clareava ao estalar dos trovões e relâmpagos que cortavam o céu naquela fatídica noite.'), nl,
+		write('Foi nessas condições que acordou sozinho, Brachyurus !!!'), nl,
+		write('Um filhote dos incríveis Lobo-Guará, mas tinha um problema . . .'), nl,
+		write('Brachyurus estava sem sua mãe . . . Era uma noite dolorosa para esse filhote !!!'), nl,
+		write('Você está em sua toca, é uma noite escura, sorte que você enxerga bem a noite '), nl,
+		write('Faça sua escolha : '), nl,
+		write('1. Caminhar pela toca'), nl,
+		write('2. Sair da toca'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+		inicializar_contador,
+		read(Alternative),
+		no2(Alternative).
 
 no2(1) :- nl,
-		write('Tem um informativo na parede, Brachyurus nunca se atentou a isso . . .'), nl,
+		write('Após caminhar por um tempo pela toca, encontra um informativo na parede, Brachyurus nunca se atentou a isso . . .'), nl,
 	   write('1. Ler informativo'), nl,
 	   write('2. Esperar Mamãe'), nl,
 	   write('Faça sua escolha:'),nl,
@@ -51,13 +61,14 @@ no2(1) :- nl,
 	   no3(Alternative).
 
 no2(2) :- nl,
-		write('A chuva está muito forte e os perigos são muitos.Brachyurus escorregou e foi levado pela água'), nl,
- 	    write('Você perdeu !!'),nl,
-		verificar_contador,
-		write('Gostaria de jogar de novo ? (y,n)'),nl,
-		write('>'),
-	    read(Desire),
-	    play(Desire).
+		helpers:dificuldade(Valor),
+		( Valor =:= 1 -> 
+			write('A chuva está muito forte e os perigos são muitos. Brachyurus volta para a toca com medo...'), nl, no2(1)
+		; Valor =:= 2 ->
+			write('A chuva está muito forte e os perigos são muitos. Brachyurus volta para a toca com medo...'), nl, no2(1)
+		; Valor =:= 3 ->
+			write('A chuva está muito forte e os perigos são muitos.Brachyurus escorregou e foi levado pela água'), nl, fim_jogo
+		).
 
 /*  Você consegue forçar a ida pra qualquer nó, olhe a linha 55  */
 no3(1) :- nl,
@@ -99,14 +110,15 @@ no4(1) :- nl,
 		read(Alternative),
 	    no41(Alternative).
 
-no4(2) :- nl, write('Você ficou perdido e com fome pelo Cerrado!'), nl,
-		write('Você perdeu !!'),nl,
-		verificar_contador,
-		write('Gostaria de jogar de novo ? (y,n)'),nl,
-		write('>'),
-		read(Desire),
-		play(Desire).
-
+no4(2) :- nl, 
+		helpers:dificuldade(Valor),
+		( Valor =:= 1 -> 
+			write('Você ficou sozinho e com fome! Então após um tempo esperando você saiu em busca de sua mãe.'), nl, no4(1)
+		; Valor =:= 2 ->
+			write('Você ficou sozinho e com fome! Quando acordou já era tarde para caçar comida...'), nl, fim_jogo
+		; Valor =:= 3 ->
+			write('Você ficou sozinho e com fome! Quando acordou já era tarde para caçar comida...'), nl, fim_jogo
+		).
 
 no41(1) :- nl, write('O desafio é:'), nl,
 		startcharada(4). /*  Inicia charada com 4 tentativas */
@@ -198,15 +210,20 @@ no9(2) :- decrementar_contador,
 
 /*  Continuar no daqui se quiser ou deixar o tatu como otario */
 no10(1) :- incrementar_contador,
-		nl, write('Ao ajudar o tatu canastra, ele nota o resto das suas frutas em seu bolso e as pega para si,'), nl,
-		write('Quando você percebe ele já entrou em sua toca e trancou a porta. '), nl,
-		write('Então você segue caminho, mas fica com fome e morre!'), nl,
-		write('Você perdeu!!'),nl,
-		verificar_contador,
-		write('Gostaria de jogar de novo ? (y,n)'),nl,
-		write('>'),
-		read(Desire),
-		play(Desire).
+		helpers:dificuldade(Valor),
+		( Valor =:= 1 -> 
+			nl, write('Ao ajudar o tatu canastra, ele nota o resto das suas frutas em seu bolso e as pega para si,'), nl,
+			write('Quando você percebe ele já entrou em sua toca e trancou a porta. '), nl,
+			write('Então você segue caminho...'), nl, no14(1)
+		; Valor =:= 2 ->
+			nl, write('Ao ajudar o tatu canastra, ele nota o resto das suas frutas em seu bolso e as pega para si,'), nl,
+			write('Quando você percebe ele já entrou em sua toca e trancou a porta. '), nl,
+			write('Então você segue caminho...'), nl, no14(1)
+		; Valor =:= 3 ->
+			nl, write('Ao ajudar o tatu canastra, ele nota o resto das suas frutas em seu bolso e as pega para si,'), nl,
+			write('Quando você percebe ele já entrou em sua toca e trancou a porta. '), nl,
+			write('Então você segue caminho, mas fica com fome e morre!'), nl, fim_jogo
+		).
 
 no10(2) :- decrementar_contador,
 		nl, write('Ao seguir em frente o tatu te vê e grita por sua ajuda. '), nl,
@@ -245,12 +262,7 @@ no12(1) :- no11(2).
 no12(2) :- no8(2).
 
 no13(1) :- nl, write('A onça-pintada que estava escondida dormindo te ouviu e te transformou em pedacinhos!'), nl,
-		write('Você perdeu!!'),nl,
-		verificar_contador,
-		write('Gostaria de jogar de novo ? (y,n)'),nl,
-		write('>'),
-		read(Desire),
-		play(Desire).
+		fim_jogo.
 
 no13(2) :- nl, write('Ao caminhar furtivamente pela caverna...Você ouve alguns barulhos, então começa a seguir os sons... Enquanto seguia, acabou encontrando uma lobeira...'), nl,
 		write('1. Seguir investigando sons'), nl,
@@ -270,13 +282,18 @@ no14(1) :- nl, write('Ao seguir em frente... Você se depara com um enorme incê
 
 no14(2) :- no10(1).
 
-no15(1) :- nl, write('Você está fraco, seus sentidos começam a ficar confusos... Até que...'), nl,
-		write('Você morreu de fome '), nl,nl,
-    write('Você perdeu !!'),nl,
-    write('Gostaria de jogar de novo ? (y,n)'),nl,
-    write('>'),
-    read(Desire),
-    play(Desire).
+no15(1) :- 
+		helpers:dificuldade(Valor),
+		( Valor =:= 1 -> 
+			write('Você está fraco, seus sentidos começam a ficar confusos... Até que...'), nl,
+			write('Você retorna e busca a lobeira...'), nl, no15(2)
+		; Valor =:= 2 ->
+			write('Você está fraco, seus sentidos começam a ficar confusos... Até que...'), nl,
+			write('Você retorna e busca a lobeira...'), nl, no15(2)
+		; Valor =:= 3 ->
+			write('Você está fraco, seus sentidos começam a ficar confusos... Até que...'), nl,
+			write('Você morreu de fome!'), nl, fim_jogo
+		).
 
 no15(2) :- nl, write('Você come a lobeira, estava deliciosa e consegue se sentir mais forte! Os barulhos persistem e parecem estar se aproximando.'), nl,
 		write('1. Tentar se esconder na caverna'), nl,
@@ -296,11 +313,7 @@ no16(1) :- nl, write('Você se escondeu em uma parte mais escura da caverna e fi
 
 no16(2) :- nl, write('A Onça-Pintada ouve os seus gritos e vem correndo te atacar, você não teve a menor chance...'), nl,
 		write('Você morreu pelo ataque da Onça! '), nl,nl,
-    write('Você perdeu !!'),nl,
-    write('Gostaria de jogar de novo ? (y,n)'),nl,
-    write('>'),
-    read(Desire),
-    play(Desire).
+    	fim_jogo.
 
 no17(1) :- nl, write('Você tentou atacar a Onça-Pintada pelas costas, porém ela conseguiu ouvir seu pulo e desviou do seu ataque, você caiu fora da caverna... '), nl,
 		write('A Onça-Pintada vem em sua direção porém, uma sombra aparece sobre você… É sua mamãe e o cachorro caramelo! '), nl,
@@ -317,20 +330,14 @@ no17(2) :- nl, write('A Onça seguiu para fora da caverna, você então decide t
 		write('2. Esperar que sua mãe apareça novamente na caverna por tempo indeterminado'), nl,
 		write('Faça sua escolha:'),nl,
 		write('>'),
-	  	read(Alternative).
-
-/*  no18(Alternative). */
+	  	read(Alternative),
+		no18(Alternative).
 
 no18(1) :- no8(2).
 
 no18(2) :- nl, write('Você esperou tanto que a Onça voltou e você não teve como fugir...'), nl,
-		write('Você morreu pelo ataque da Onça! '), nl,nl,
-    write('Você perdeu !!'),nl,
-    write('Gostaria de jogar de novo ? (y,n)'),nl,
-    write('>'),
-    read(Desire),
-    play(Desire).
-
+	write('Você morreu pelo ataque da Onça! '), nl,nl,
+    fim_jogo.
 
 no19(1) :- nl, write('Ao entrar no incêndio...A visão está baixa por conta da fumaça, você não vê sinais da sua mãe, porém avista um sagui preso numa árvore em chamas.'), nl,
 		write('1. Salvar a vida do sagui.'), nl,
