@@ -1,5 +1,5 @@
 :- module(helpers, [resposta_charada/1, startcharada/1,
-    inicializar_contador/0,incrementar_contador/0,decrementar_contador/0,verificar_contador/0]).
+    inicializar_contador/0,incrementar_contador/0,decrementar_contador/0,verificar_contador/0, fim_jogo/0]).
 
 use_module(menu).
 
@@ -55,6 +55,14 @@ startcharada(0):-
 
 	nl, write('As Emas ficaram revoltadas com você, e te expulsaram da região '), nl,
 	write('Você morreu de fome '), nl,nl,
+	write('Você perdeu !!'),nl,
+	verificar_contador,
+	write('Gostaria de jogar de novo ? (y,n)'),nl,
+	write('>'),
+	read(Desire),
+	play(Desire).
+
+fim_jogo :-
 	write('Você perdeu !!'),nl,
 	verificar_contador,
 	write('Gostaria de jogar de novo ? (y,n)'),nl,
