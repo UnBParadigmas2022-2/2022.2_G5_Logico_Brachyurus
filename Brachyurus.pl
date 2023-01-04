@@ -286,7 +286,7 @@ no15(2) :- nl, write('Você come a lobeira, estava deliciosa e consegue se senti
 	  read(Alternative),
     no16(Alternative).
 
-no16(1) :- nl, write('Você se escondeu em uma parte mais escura da caverna e ficou o mais encolhido possível... Você vê a Onça-Pintada seguindo o cheiro de algo, porém ela para onde estava a lobeira, cheira bastante, porém segue até a entrada da caverna...'), nl,
+no16(1) :- nl, write('Você se escondeu em uma parte mais escura da caverna e ficou o mais encolhido possível... Você vê a Onça-Pintada seguindo o cheiro de algo, ela para onde estava a lobeira, cheira bastante, e segue até a entrada da caverna...'), nl,
 		write('1. Atacar a Onça-Pintada pelas costas'), nl,
 		write('2. Esperar para ver o que acontece'), nl,
 		write('Faça sua escolha:'),nl,
@@ -313,12 +313,13 @@ no17(1) :- nl, write('Você tentou atacar a Onça-Pintada pelas costas, porém e
 
 no17(2) :- nl, write('A Onça seguiu para fora da caverna, você então decide terminar de investigar a caverna... Porém não encontra mais ninguém...'), nl,
 		write('Opa! Uma pegada de lobo-guará!! Provavelmente sua mãe esteve por aqui há pouco tempo!'), nl,
-    write('1. Esperar um tempo para sair da caverna e seguir em direção à tenda'), nl,
+		write('1. Esperar um tempo para sair da caverna e seguir em direção à tenda'), nl,
 		write('2. Esperar que sua mãe apareça novamente na caverna por tempo indeterminado'), nl,
 		write('Faça sua escolha:'),nl,
 		write('>'),
-	  read(Alternative),
-    /*  no18(Alternative). */
+	  	read(Alternative).
+
+/*  no18(Alternative). */
 
 no18(1) :- no8(2).
 
@@ -399,7 +400,7 @@ no24(2) :- nl, write('Não farei sua aventura por você, mas vou te acompanhar')
     
 no25(1) :- nl, write('No caminho da cidade você encontra Carlinhos, a Capivara!'), nl,
 		write('Conhecido por ser bastante amigável e guloso'), nl, nl,
-		write('Ele se aproxima vagarosamente e pede um pouco de comida em troca de informações sobre sua mãe')
+		write('Ele se aproxima vagarosamente e pede um pouco de comida em troca de informações sobre sua mãe'),nl,
 		write('1. Dar comida'), nl,
 		write('2. Poupar comida'),nl,
 		write('>'),
