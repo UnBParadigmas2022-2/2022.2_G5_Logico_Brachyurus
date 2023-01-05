@@ -68,7 +68,7 @@ TEMPO: +/- 15min-->
 |Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) |
 | -- | -- | -- |
 | Artur Vinicius Dias Nunes  |   |  |
-| Caio César Oliveira | |  |
+| Caio César Oliveira | 1. Funcionalidades adicionadas:<br>- [Adição da dificuldade no jogo](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/5)<br>- [Adição do caráter do jogador](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/2/commits)<br>- [Adição de nós da história do jogo](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/2/commits)<br>2. Funcionalidades revisadas:<br>- [Limpar a tela do usuário](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/6/commits)<br>- [Adição de nós da história do jogo](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/1/files#diff-1dae46e30620ae1658e8d2f196e0555286d680ecc71bc32600e69402b7bbbad3)| Excelente |
 | João Pedro Alves da Silva Chaves |  |  |
 | João Vitor de Souza Durso |  |  |
 | Leticia Assunção Aires Moreira | |  |
