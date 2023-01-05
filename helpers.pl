@@ -6,6 +6,9 @@ use_module(menu).
 :- dynamic contador/1.
 :- dynamic dificuldade/1.
 
+limpa_tela :-
+	write('\33\[2J').
+
 inicializar_contador :-
     retractall(contador(_)),
     assert(contador(0)).
