@@ -384,10 +384,12 @@ no16(2) :- limpa_tela,
     	fim_jogo.
 
 no17(1) :- limpa_tela,
+		sum_ranking,
         nl, write('Você tentou atacar a Onça-Pintada pelas costas, porém ela conseguiu ouvir seu pulo e desviou do seu ataque, você caiu fora da caverna... '), nl,
 		write('A Onça-Pintada vem em sua direção porém, uma sombra aparece sobre você… É sua mamãe e o cachorro caramelo! '), nl,
         write('A Onça é muito poderosa, porém 3 adversários já parece ser um número grande para ela, então ela volta para caverna... '), nl,nl,
         write('Você GANHOU !!'),nl,
+		write_ranking,
         write('Gostaria de jogar de novo ? (y,n)'),nl,
         write('>'),
         read(Desire),
