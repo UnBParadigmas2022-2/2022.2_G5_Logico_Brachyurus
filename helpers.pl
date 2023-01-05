@@ -1,5 +1,5 @@
 :- module(helpers, [resposta_charada/1, startcharada/1,
-    inicializar_contador/0,incrementar_contador/0,decrementar_contador/0,verificar_contador/0, fim_jogo/0, limpa_tela/0]).
+    inicializar_contador/0,incrementar_contador/0,decrementar_contador/0,verificar_contador/0, fim_jogo/0, limpa_tela/0, resposta_charada_jaguatirica/1, startcharada_jaguatirica/1]).
 
 use_module(menu).
 
@@ -74,3 +74,17 @@ fim_jogo :-
 	play(Desire).
 
 :- export(dificuldade/1).
+
+resposta_charada_jaguatirica(20).
+
+startcharada_jaguatirica(Tentativas):-
+	
+	Tentativas>0,
+	nl, write('Ao fim da tarde, um passarinho estava voando e contou 20 arvores de uma floresta a sua direita. Quando ele estava voltando, ele contou 20 arvores a sua esquerda. Quantas arvores ele contou no total???'), nl,
+	write('Escreva a resposta >'),
+	resposta_charada_jaguatirica(Respostacharada),
+	read(Guess),
+	(   Guess == Respostacharada
+	->  write('Resposta Correta.'),no35(1)
+	;	write('Resposta Errada.'),no35(2)
+	).

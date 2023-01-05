@@ -479,7 +479,7 @@ no26(1) :- limpa_tela,
 		nl, write('Voce volta para a caverna'),
 		no16(1).
 
-no26(2) :- limpa_tela,
+no26(2) :- 
 		nl, write('Você entra na tenda do caçador e ele está dormindo'), nl,
 		write('1.Procurar sua mamãe na tenda'), nl,
 		write('2.Sair da tenda'), nl,
@@ -542,7 +542,8 @@ no31(1) :- limpa_tela,
 
 no31(2) :- limpa_tela,
         nl, write('Olá pequeno lobo, me chamo Priscila, a jaguatirica, acredito que esteja longe de casa, nunca vi sua espécie por essas bandas, posso te ajudar, mas para isso terá que resolver uma charada, HAHA'), nl,
-        nl, write('A charada é:'), nl.
+        write('A charada é:'), nl,
+		startcharada_jaguatirica(1).
 
 no32(1) :- limpa_tela,
         nl, write('Muito obrigado jovem, como eu poderia retribuir sua ajudar meu caro'), nl,
@@ -581,8 +582,10 @@ no34(2) :- limpa_tela,
 
 no35(1) :-limpa_tela,
 		nl, write('Parabéns você acertou a charada, vou le ajudar, vi uma loba de sua espécie caminhando para a tenda do caçador. HAHA'), nl,
+		write('Então Brachyurus segue para a tenda do caçador.'), nl,
 		no26(2).
 
 no35(2) :-limpa_tela,
 		nl, write('Você errou a charada, porém vou le ajudar, vi uma loba de sua espécie caminhando para a tenda do caçador. HAHA'), nl,
+		write('Então Brachyurus segue para a tenda do caçador.'), nl,
 		no26(2).
