@@ -6,6 +6,10 @@
 
 no1(1) :-
         limpa_tela,
+		write('Digite seu nome:'), nl,
+		read(Name),
+		helpers:retractall(name_ranked(_)),
+		helpers:assert(name_ranked(Name)),
 		write('=> Selecione sua dificuldade:'), nl,
 		write('1. Fácil'), nl,
 		write('2. Médio'), nl,
@@ -40,6 +44,19 @@ no1(4) :- limpa_tela,
        	read(Desire),
 	    play(Desire).
 
+no1(5) :-limpa_tela,
+		write('__________________RANKING_________________'),nl,nl,
+		open('ranking.txt',read,In),
+		repeat,
+		read_line_to_codes(In,X),
+		writef(X),nl,
+		X=end_of_file,!,
+		nl,
+		close(In),
+		play.
+
+
+
 no1_1 :- limpa_tela,
 		write('Era uma noite chuvosa, o céu era preenchido por nuvens e a noite escura clareava ao estalar dos trovões e relâmpagos que cortavam o céu naquela fatídica noite.'), nl,
 		write('Foi nessas condições que acordou sozinho, Brachyurus !!!'), nl,
@@ -52,17 +69,18 @@ no1_1 :- limpa_tela,
 		write('Faça sua escolha:'),nl,
 		write('>'),
 		inicializar_contador,
+		init_ranking,
 		read(Alternative),
 		no2(Alternative).
 
 no2(1) :- nl,
 		write('Após caminhar por um tempo pela toca, encontra um informativo na parede, Brachyurus nunca se atentou a isso . . .'), nl,
-	   write('1. Ler informativo'), nl,
-	   write('2. Esperar Mamãe'), nl,
-	   write('Faça sua escolha:'),nl,
+		write('1. Ler informativo'), nl,
+		write('2. Esperar Mamãe'), nl,
+		write('Faça sua escolha:'),nl,
 		write('>'),
-	   read(Alternative),
-	   no3(Alternative).
+		read(Alternative),
+		no3(Alternative).
 
 no2(2) :- limpa_tela, 
         nl,
@@ -106,6 +124,7 @@ no3(2) :- limpa_tela,
 no4(1) :- 
         nl,
 		incrementar_contador,
+		sum_ranking,
 		write('Entáo Você começou a jornada em busca de sua mãe....'), nl,
 		write('O cerrado está tranquilo hoje. Mas você está com fome e perdido nos grandes campos do cerrado.'), nl,
 		write('Você encontra um bando de Emas, que conhecem bastante a região.'),nl,
@@ -129,7 +148,8 @@ no4(2) :- limpa_tela,
 			write('Você ficou sozinho e com fome! Quando acordou já era tarde para caçar comida...'), nl, fim_jogo
 		).
 
-no41(1) :- limpa_tela, 
+no41(1) :- limpa_tela,
+		sum_ranking,
         nl, write('O desafio é:'), nl,
 		startcharada(4). /*  Inicia charada com 4 tentativas */
 
@@ -138,6 +158,7 @@ no41(2) :- limpa_tela,
 
 no5(1) :- limpa_tela,  
         incrementar_contador,
+		sum_ranking,
 		nl, write('As emas te parabenizam e lhe oferecem frutos, '), nl,
 		write('além de informar que existem dois locais onde sua mãe pode ter se abrigado da chuva. '), nl,
 		write('A caverna da terrível onça-pintada ou a tenda do caçador. '),nl,
@@ -149,6 +170,7 @@ no5(1) :- limpa_tela,
 		no8(Alternative).
 
 no6(1) :- limpa_tela, 
+		sum_ranking,
         nl, write('Ao começar a investigar a toca, um relâmpago ilumina algo no fundo... Parecem ser olhos...'), nl,
 		write('1. Correr em direção ao objeto que brilhava'), nl,
 		write('2. Fugir da toca'), nl,
@@ -162,6 +184,7 @@ no6(2) :- limpa_tela,
     no3(2).
 
 no7(1) :- limpa_tela,
+		sum_ranking,
         nl, write('Ao se aproximar, Brachyurus pôde identificar o que a forma brilhante era'), nl, nl,
         write('Se tratava de Cuca!'), nl, nl,
         write('Sua vizinha coruja que informou ter a casa destruída pela tempestade'), nl, nl,
@@ -176,6 +199,7 @@ no7(2) :- limpa_tela,
         no4(1).
 
 no8(1) :- limpa_tela, 
+		sum_ranking,
         nl, write('No caminho da caverna da onça-pintada, '), nl,
  	  	write('você se depara com o cachorro caramelo, '), nl,
 		write('famoso por ser o campeão do torneio anual de borogodobol na selva. '), nl,
@@ -188,7 +212,8 @@ no8(1) :- limpa_tela,
 	    read(Alternative),
 		no9(Alternative).
 
-no8(2) :- limpa_tela, 
+no8(2) :- limpa_tela,
+		sum_ranking,
         nl, write('No caminho da tenda do caçador'), nl,
 		write('você se depara com o tatu canastra, '), nl,
 		write('famoso por seus truques e artimanhas. '), nl,
@@ -204,6 +229,7 @@ no8(2) :- limpa_tela,
 
 no9(1) :- limpa_tela, 
         incrementar_contador,
+		sum_ranking,
 		nl, write('O cachorro caramelo fica muito grato pela sua ajuda, '), nl,
  	  	write('porém não sabe nada sobre sua mãe, mas diz que para retribuir irá te acompanhar até a caverna da onça-pintada. '), nl,
 		write('Passado algum tempo de caminhada, próximo a caverna da onça-pintada são encontradas pegadas de lobo-guará.'), nl,
@@ -218,6 +244,7 @@ no9(1) :- limpa_tela,
 
 no9(2) :- limpa_tela, 
         decrementar_contador,
+		sub_ranking,
 		nl, write('Passado algum tempo de caminhada, próximo a caverna da onça-pintada são encontradas pegadas de lobo-guará.'), nl,
 		write('Porém uma ventania forte acontece e as pegadas somem, '), nl,
 		write('infelizmente o seu faro não é bom suficiente para acompanhar o cheiro.'), nl,
@@ -231,6 +258,7 @@ no9(2) :- limpa_tela,
 /*  Continuar no daqui se quiser ou deixar o tatu como otario */
 no10(1) :- limpa_tela, 
         incrementar_contador,
+		sum_ranking,
 		helpers:dificuldade(Valor),
 		( Valor =:= 1 -> 
 			nl, write('Ao ajudar o tatu canastra, ele nota o resto das suas frutas em seu bolso e as pega para si,'), nl,
@@ -248,6 +276,7 @@ no10(1) :- limpa_tela,
 
 no10(2) :- limpa_tela, 
         decrementar_contador,
+		sub_ranking,
 		nl, write('Ao seguir em frente o tatu te vê e grita por sua ajuda. '), nl,
 		write('1. Seguir em frente mesmo assim.'), nl,
 		write('2. Ajudar o tatu canastra.'),nl,
@@ -258,6 +287,7 @@ no10(2) :- limpa_tela,
 
 no11(1) :- limpa_tela, 
         incrementar_contador,
+		sum_ranking,
 		nl, write('O cachorro caramelo segue os rastros até uma entrada secreta da caverna. '), nl,
  	  	write('Então o cachorro pede desculpas e fala que só te acompanhará até aquele ponto porque tem muito medo da onça-pintada. '), nl,
 		write('Vocês se despedem e ao entrar na caverna você...'), nl,
@@ -272,6 +302,7 @@ no11(1) :- limpa_tela,
 cachorro caramelo continuar no daqui com mais dificuldade */
 no11(2) :- limpa_tela, 
         decrementar_contador,
+		sub_ranking,
 		nl, write('Ao chegar na entrada da caverna sozinho e assustado você não vê nem sinal da onça-pintada.'), nl,
 		write('Ao entrar na caverna você...'), nl,
 		write('1. Grita por sua mãe.'), nl,
@@ -292,6 +323,7 @@ no13(1) :- limpa_tela,
 		fim_jogo.
 
 no13(2) :- limpa_tela,
+		sum_ranking,
         nl, write('Ao caminhar furtivamente pela caverna...Você ouve alguns barulhos, então começa a seguir os sons... Enquanto seguia, acabou encontrando uma lobeira...'), nl,
 		write('1. Seguir investigando sons'), nl,
 		write('2. Comer lobeira'), nl,
@@ -326,6 +358,7 @@ no15(1) :- limpa_tela,
 		).
 
 no15(2) :- 
+		sum_ranking,
         nl, write('Você come a lobeira, estava deliciosa e consegue se sentir mais forte! Os barulhos persistem e parecem estar se aproximando.'), nl,
 		write('1. Tentar se esconder na caverna'), nl,
 		write('2. Gritar pedindo socorro'), nl,
@@ -335,6 +368,7 @@ no15(2) :-
         no16(Alternative).
 
 no16(1) :- limpa_tela,
+		sum_ranking,
         nl, write('Você se escondeu em uma parte mais escura da caverna e ficou o mais encolhido possível... Você vê a Onça-Pintada seguindo o cheiro de algo, ela para onde estava a lobeira, cheira bastante, e segue até a entrada da caverna...'), nl,
 		write('1. Atacar a Onça-Pintada pelas costas'), nl,
 		write('2. Esperar para ver o que acontece'), nl,
@@ -398,6 +432,7 @@ no20(1) :- limpa_tela,
 	    no21(Alternative).
 
 no20(2) :- limpa_tela,
+		sub_ranking,
         decrementar_contador,
 		no10(2).
 
@@ -432,6 +467,7 @@ no22(3) :- limpa_tela,
     	no22(Alternative).
 	
 no23(1) :- limpa_tela,
+		sum_ranking,
         nl, write('Isso mesmo. Algumas horas atrás vi sua mãe saindo da toca às pressas'), nl,
         write('E então, vai querer companhia na sua busca?'), nl,
         write('1. Sim'), nl,
