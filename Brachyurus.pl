@@ -55,8 +55,7 @@ no1_1 :- limpa_tela,
 		read(Alternative),
 		no2(Alternative).
 
-no2(1) :- limpa_tela, 
-        nl,
+no2(1) :- nl,
 		write('Após caminhar por um tempo pela toca, encontra um informativo na parede, Brachyurus nunca se atentou a isso . . .'), nl,
 	   write('1. Ler informativo'), nl,
 	   write('2. Esperar Mamãe'), nl,
@@ -104,7 +103,7 @@ no3(2) :- limpa_tela,
 	    no4(Alternative).
 
 /*  Pode puxar um novo nó a partir do no4(3) "Seguir o caminho sozinho"  */
-no4(1) :- limpa_tela, 
+no4(1) :- 
         nl,
 		incrementar_contador,
 		write('Entáo Você começou a jornada em busca de sua mãe....'), nl,
@@ -301,7 +300,7 @@ no13(2) :- limpa_tela,
 	  read(Alternative),
 	  no15(Alternative).
 		
-no14(1) :- limpa_tela, 
+no14(1) :-  
         nl, write('Ao seguir em frente... Você se depara com um enorme incêndio causado pelos caçadores.'), nl,
 		write('1. Seguir em direção ao incêncio para procurar pela sua mãe.'), nl,
 		write('2. Ignorar o incêndio e dar meia volta.'), nl,
@@ -326,7 +325,7 @@ no15(1) :- limpa_tela,
 			write('Você morreu de fome!'), nl, fim_jogo
 		).
 
-no15(2) :- limpa_tela,
+no15(2) :- 
         nl, write('Você come a lobeira, estava deliciosa e consegue se sentir mais forte! Os barulhos persistem e parecem estar se aproximando.'), nl,
 		write('1. Tentar se esconder na caverna'), nl,
 		write('2. Gritar pedindo socorro'), nl,
