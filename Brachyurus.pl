@@ -402,8 +402,12 @@ no20(2) :- limpa_tela,
 		no10(2).
 
 no21(1) :- limpa_tela,
-        nl, write('O sagui disse que viu sua mamãe nos arredores da caverna, e para lá você vai...'),
-		no16(1).
+        nl, write('O sagui disse que viu sua mamãe nos arredores da caverna'), nl,
+		write('1.Voltar para a caverna em busca de sua mamãe'), nl,
+		write('2.Seguir em buscas de sua mamãe na tenda do caçador'), nl,
+		write('>'),
+	    read(Alternative), 
+		no26(Alternative).
 
 /*decrementar aqui*/
 no22(1) :- limpa_tela,
@@ -457,7 +461,7 @@ no25(1) :- limpa_tela,
 		write('2. Poupar comida'),nl,
 		write('>'),
 		read(Alternative),
-		no26(Alternative).
+		no29(Alternative).
 		
 no25(2) :- limpa_tela,
         nl, write('Não preciso da companhia de ninguém. vou sozinho mesmo.'), nl,
@@ -470,3 +474,115 @@ no25(3) :- limpa_tela,
 
 no25(3) :- limpa_tela,
         no4(2).
+
+no26(1) :- limpa_tela,
+		nl, write('Voce volta para a caverna'),
+		no16(1).
+
+no26(2) :- limpa_tela,
+		nl, write('Você entra na tenda do caçador e ele está dormindo'), nl,
+		write('1.Procurar sua mamãe na tenda'), nl,
+		write('2.Sair da tenda'), nl,
+		write('>'),
+		read(Alternative),
+		no27(Alternative).
+
+no27(1) :- limpa_tela,
+		nl, write('Com todo cuidado você procura pela tenda e não encontra pistas da sua mamãe, então você decide sair da tenda.'), nl,
+		no27(2).
+
+no27(2) :-
+		nl, write('Ao sair da tenda você pisa em um galho e faz barulho e acorda o caçador'), nl,
+		write('1.Correr!'), nl,
+		write('2.Pedir ajudar ao caçador'), nl,
+		write('>'),
+		read(Alternative),
+		no28(Alternative).
+
+no28(1) :- limpa_tela,
+		nl, write('Você tenta correr porém o caçador é muito ágil e consegue te acertar e te captura.'), nl,
+		fim_jogo.
+
+no28(2) :- limpa_tela,
+		nl, write('Você tenta pedir ajuda ao caçador mas ele não te dá ouvidos e te trasforma em um lindo tapete de porta'), nl,
+		fim_jogo.
+
+no29(1) :- limpa_tela,
+        nl, write('Ah meu caro amigo, eu vi sua mãe caminhando em direção a tenda do caçador!'), nl,
+        no8(2).
+
+no29(2) :- limpa_tela,
+        nl, write('Carlinhos fica muito bravo pela seu egoismo, só le resta seguir em direção a floresta, ao entrar você se depara com dois caminhos'), nl,
+		write('1.Seguir pela floresta densa'), nl,
+		write('2.Seguir em direção a fumaça'), nl,
+		write('>'),
+		read(Alternative),
+		no30(Alternative).
+
+no30(1) :- limpa_tela,
+        nl, write('Ao entrar na floresta densa logo de cara, você se depara com uma bela jaguatirica, descansado deitada em uma árvore. Com o barulho de seus passos a jaguatirica acorda e vai ao seu encontro.'), nl,
+		write('1.Fugir da Jaguatirica'), nl,
+		write('2.Falar com ela'), nl,
+		write('>'),
+		read(Alternative),
+		no31(Alternative).
+
+no30(2) :- limpa_tela,
+        nl, write('Caminhando em direção a fumaça, você se vê uma anta caida no chão pedindo ajuda.'), nl,
+        nl, write('Jovém lobo me ajude, me chamo Claúdio, fugindo das queimada acabei me machucando, ME AJUDE!'), nl,
+		write('1.Ajudar o Claúdio'), nl,
+		write('2.Seguir em frente'), nl,
+		write('>'),
+		read(Alternative),
+		no32(Alternative).
+
+no31(1) :- limpa_tela,
+        nl, write('Correndo desesperado na tentativa de fugir da Jaguatirica você segue para a fumaça. Depois de um tempo você cansado começar a caminhar'), nl,
+		no30(2).
+
+no31(2) :- limpa_tela,
+        nl, write('Olá pequeno lobo, me chamo Priscila, a jaguatirica, acredito que esteja longe de casa, nunca vi sua espécie por essas bandas, posso te ajudar, mas para isso terá que resolver uma charada, HAHA'), nl,
+        nl, write('A charada é:'), nl.
+
+no32(1) :- limpa_tela,
+        nl, write('Muito obrigado jovem, como eu poderia retribuir sua ajudar meu caro'), nl,
+		write('1.Estou procurando minha mãe'), nl,
+		write('2.Estou perdido'), nl,
+		write('>'),
+		read(Alternative),
+		no33(Alternative).
+
+no32(2) :- limpa_tela,
+        nl, write('Você está perdido e avista um incêndio um pouco perto dali.'), nl,
+		write('1.Continuar entrando na floresta'), nl,
+		write('2.Seguir em direção ao incêndio'), nl,
+		write('>'),
+		read(Alternative),
+		no34(Alternative).
+
+no33(1) :- limpa_tela,
+        nl, write('Eu vi uma loba de sua espécie indo para a caverna, não posso le acompanhar, mas desejo sorte em sua caminhada'), nl,
+		no8(1).
+
+no33(2) :- limpa_tela,
+        nl, write('Calma meu jovem lobo, Eu vi uma loba de sua espécie indo para a caverna, não posso le acompanhar, mas desejo sorte em sua caminhada, sei que ira dar tudo certo.'), nl,
+		no8(1).
+
+no34(1) :- limpa_tela,
+        nl, write('Andando em direção ao escuro da floresta, a noite vai se aproximando e o brachyurus parece está cada vez mais longe de encontrar sua mamãe.'), nl,
+        nl, write('Brachyurus começa a perceber que está sendo observado porém cansado e com fome, não tem energia para fugir.'), nl,
+        nl, write('Quando de repente um onça parda o ataca, sem forças para lutar, brachyurus vê sua vida se esvaindo diante de seus olhos.'), nl,
+        nl, write('A onça parda o carrega até a toca da onça pintada, onde juntas saboream de um belo jantar.'), nl,
+		fim_jogo.
+
+no34(2) :- limpa_tela,
+        nl, write('Você decide caminhar em direção ao incêndio, na tentativa de encontra sua mãe'), nl,
+		no19(1).
+
+no35(1) :-limpa_tela,
+		nl, write('Parabéns você acertou a charada, vou le ajudar, vi uma loba de sua espécie caminhando para a tenda do caçador. HAHA'), nl,
+		no26(2).
+
+no35(2) :-limpa_tela,
+		nl, write('Você errou a charada, porém vou le ajudar, vi uma loba de sua espécie caminhando para a tenda do caçador. HAHA'), nl,
+		no26(2).
