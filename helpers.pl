@@ -1,10 +1,13 @@
 :- module(helpers, [resposta_charada/1, startcharada/1,
-    inicializar_contador/0,incrementar_contador/0,decrementar_contador/0,verificar_contador/0, fim_jogo/0, limpa_tela/0]).
+    inicializar_contador/0,incrementar_contador/0,decrementar_contador/0,verificar_contador/0, fim_jogo/0, limpa_tela/0, init_ranking/0, 
+	sum_ranking/0, sub_ranking/0, write_ranking/0,name_ranked/1]).
 
 use_module(menu).
 
 :- dynamic contador/1.
 :- dynamic dificuldade/1.
+:- dynamic ranking/1.
+:- dynamic name_ranked/1.
 
 limpa_tela :-
 	write('\33\[2J').
@@ -68,9 +71,39 @@ startcharada(0):-
 fim_jogo :-
 	write('Você perdeu !!'),nl,
 	verificar_contador,
+	write_ranking,
 	write('Gostaria de jogar de novo ? (y,n)'),nl,
 	write('>'),
 	read(Desire),
 	play(Desire).
 
+init_ranking :-
+	retractall(ranking(_)),
+	assert(ranking(0)).
+
+sum_ranking :-
+	ranking(Pontuacao),
+	NovaPontuacao is Pontuacao + 60,
+	retract(ranking(_)),
+	assert(ranking(NovaPontuacao)).
+
+sub_ranking :-
+	ranking(Pontuacao),
+	NovaPontuacao is Pontuacao - 8,
+	retract(ranking(_)),
+	assert(ranking(NovaPontuacao)).
+	
+write_ranking :-
+	ranking(Pontuacao),
+	name_ranked(Name),
+	open('ranking.txt', append, Out),
+	write(Out, Name), write(Out, ' -> '), 
+	write(Out, Pontuacao), write(Out, ' '), 
+	write(Out, 'PONTOS'),
+	write(Out, '.'), write(Out, '\n'),
+	close(Out).
+	
+
 :- export(dificuldade/1).
+:- export(ranking/1).
+:- export(name_ranked/1).
