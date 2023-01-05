@@ -41,7 +41,7 @@ verificar_contador :-
 resposta_charada(195).
 
 startcharada(Tentativas):-
-	
+
 	Tentativas>0,
 	nl, write('Pensei em um número e somei 35. Depois Tirei 17 e cheguei ao número 213. o numero que pensei foi ???'), nl,
 	write('Escreva a resposta >'),
@@ -53,6 +53,7 @@ startcharada(Tentativas):-
 		write('Resposta Errada, você tem '),
 		write(Diminuitentativa), 
 		write(' tentativas restantes'), nl,nl,
+		sub_ranking,
 		startcharada(Diminuitentativa)
 	).
 
@@ -63,6 +64,7 @@ startcharada(0):-
 	write('Você morreu de fome '), nl,nl,
 	write('Você perdeu !!'),nl,
 	verificar_contador,
+	write_ranking,
 	write('Gostaria de jogar de novo ? (y,n)'),nl,
 	write('>'),
 	read(Desire),
@@ -96,8 +98,9 @@ sub_ranking :-
 write_ranking :-
 	ranking(Pontuacao),
 	name_ranked(Name),
+	string_upper(Name, Code),
 	open('ranking.txt', append, Out),
-	write(Out, Name), write(Out, ' -> '), 
+	write(Out, Code), write(Out, ' -> '), 
 	write(Out, Pontuacao), write(Out, ' '), 
 	write(Out, 'PONTOS'),
 	write(Out, '.'), write(Out, '\n'),

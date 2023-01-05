@@ -6,7 +6,7 @@
 
 no1(1) :-
         limpa_tela,
-		write('Digite seu nome:'), nl,
+		write('Digite seu nome: TUDO EM MINÚSCULO'), nl,
 		read(Name),
 		helpers:retractall(name_ranked(_)),
 		helpers:assert(name_ranked(Name)),
@@ -332,7 +332,8 @@ no13(2) :- limpa_tela,
 	  read(Alternative),
 	  no15(Alternative).
 		
-no14(1) :-  
+no14(1) :-
+		sum_ranking,
         nl, write('Ao seguir em frente... Você se depara com um enorme incêndio causado pelos caçadores.'), nl,
 		write('1. Seguir em direção ao incêncio para procurar pela sua mãe.'), nl,
 		write('2. Ignorar o incêndio e dar meia volta.'), nl,
@@ -392,7 +393,8 @@ no17(1) :- limpa_tela,
         read(Desire),
         play(Desire).
 
-no17(2) :- limpa_tela, 
+no17(2) :- limpa_tela,
+		sum_ranking,
         nl, write('A Onça seguiu para fora da caverna, você então decide terminar de investigar a caverna... Porém não encontra mais ninguém...'), nl,
 		write('Opa! Uma pegada de lobo-guará!! Provavelmente sua mãe esteve por aqui há pouco tempo!'), nl,
 		write('1. Esperar um tempo para sair da caverna e seguir em direção à tenda'), nl,
