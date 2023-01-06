@@ -1,10 +1,13 @@
 :- module(helpers, [resposta_charada/1, startcharada/1,
-    inicializar_contador/0,incrementar_contador/0,decrementar_contador/0,verificar_contador/0, fim_jogo/0, limpa_tela/0, resposta_charada_jaguatirica/1, startcharada_jaguatirica/1]).
+    inicializar_contador/0,incrementar_contador/0,decrementar_contador/0,verificar_contador/0, fim_jogo/0, limpa_tela/0, init_ranking/0, 
+	sum_ranking/0, sub_ranking/0, write_ranking/0,name_ranked/1, resposta_charada_jaguatirica/1, startcharada_jaguatirica/1]).
 
 use_module(menu).
 
 :- dynamic contador/1.
 :- dynamic dificuldade/1.
+:- dynamic ranking/1.
+:- dynamic name_ranked/1.
 
 limpa_tela :-
 	write('\33\[2J').
@@ -38,7 +41,7 @@ verificar_contador :-
 resposta_charada(195).
 
 startcharada(Tentativas):-
-	
+
 	Tentativas>0,
 	nl, write('Pensei em um número e somei 35. Depois Tirei 17 e cheguei ao número 213. o numero que pensei foi ???'), nl,
 	write('Escreva a resposta >'),
@@ -50,6 +53,7 @@ startcharada(Tentativas):-
 		write('Resposta Errada, você tem '),
 		write(Diminuitentativa), 
 		write(' tentativas restantes'), nl,nl,
+		sub_ranking,
 		startcharada(Diminuitentativa)
 	).
 
@@ -60,6 +64,7 @@ startcharada(0):-
 	write('Você morreu de fome '), nl,nl,
 	write('Você perdeu !!'),nl,
 	verificar_contador,
+	write_ranking,
 	write('Gostaria de jogar de novo ? (y,n)'),nl,
 	write('>'),
 	read(Desire),
@@ -68,10 +73,39 @@ startcharada(0):-
 fim_jogo :-
 	write('Você perdeu !!'),nl,
 	verificar_contador,
+	write_ranking,
 	write('Gostaria de jogar de novo ? (y,n)'),nl,
 	write('>'),
 	read(Desire),
 	play(Desire).
+
+init_ranking :-
+	retractall(ranking(_)),
+	assert(ranking(0)).
+
+sum_ranking :-
+	ranking(Pontuacao),
+	NovaPontuacao is Pontuacao + 60,
+	retract(ranking(_)),
+	assert(ranking(NovaPontuacao)).
+
+sub_ranking :-
+	ranking(Pontuacao),
+	NovaPontuacao is Pontuacao - 8,
+	retract(ranking(_)),
+	assert(ranking(NovaPontuacao)).
+	
+write_ranking :-
+	ranking(Pontuacao),
+	name_ranked(Name),
+	string_upper(Name, Code),
+	open('ranking.txt', append, Out),
+	write(Out, Code), write(Out, ' -> '), 
+	write(Out, Pontuacao), write(Out, ' '), 
+	write(Out, 'PONTOS'),
+	write(Out, '.'), write(Out, '\n'),
+	close(Out).
+	
 
 :- export(dificuldade/1).
 
@@ -88,3 +122,7 @@ startcharada_jaguatirica(Tentativas):-
 	->  write('Resposta Correta.'),no35(1)
 	;	write('Resposta Errada.'),no35(2)
 	).
+
+:- export(ranking/1).
+:- export(name_ranked/1).
+
