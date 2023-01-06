@@ -335,7 +335,7 @@ no13(2) :- limpa_tela,
 no14(1) :-
 		sum_ranking,
         nl, write('Ao seguir em frente... Você se depara com um enorme incêndio causado pelos caçadores.'), nl,
-		write('1. Seguir em direção ao incêncio para procurar pela sua mãe.'), nl,
+		write('1. Seguir em direção ao incêndio para procurar pela sua mãe.'), nl,
 		write('2. Ignorar o incêndio e dar meia volta.'), nl,
 		write('Faça sua escolha:'),nl,
 		write('>'),
