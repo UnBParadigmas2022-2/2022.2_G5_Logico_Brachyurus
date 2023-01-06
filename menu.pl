@@ -22,6 +22,7 @@ play :-	write('_________________________________________________________________
     write('                             2. Tutorial'),nl,
     write('                             3. História'),nl,
     write('                             4. Sair'),nl,
+    write('                             5. Ranking'),nl,
 	read(Alternative),
 	no1(Alternative).
 
