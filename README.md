@@ -88,14 +88,19 @@ TEMPO: +/- 15min-->
 (ii) Percepções;
 (iii) Contribuições e Fragilidades, e
 (iV) Trabalhos Futuros.-->
+Com este trabalho foi possível aprender muito sobre Prolog e como funciona o pensamento de programação lógico. <br> <br>
 
-Melhorias para o jogo que você pode ajudar a implementar !
-    - Lista de amigos no jogo para você conseguir passar por algumas situações.
-    - Dar algumas dicas durante o jogo sobre alguns princípios que podem te levar para a vitória.
-
-Fique à vontade para adicionar mais nós na história!
+Melhorias almejadas: <br>
+    - Lista de amigos feitos para o jogador conseguir chamá-los em alguma situação conveniente; <br>
+    - Dar algumas dicas durante o jogo sobre alguns princípios que podem te levar para a vitória; <br>
+    - Adicionar mais nós para dificultar mais ainda a vitória; <br>
+    - Adicionar mais itens durante o jogo e mais nós para utilizá-los; <br>
+    - Adicionar probabilidade na obtenção dos itens. <br>
 
 ## Fontes
 <!---Referencie, adequadamente, as referências utilizadas.
 Indique ainda sobre fontes de leitura complementares.
 -->
+> FRUEHWIRTH, Thom; WIELEMAKER, Jan; KONINCK, Leslie. SWI Prolog Reference Manual 6.2.2. [S. l.]: Books on Demand, 2012. Disponível em: https://www.swi-prolog.org/. Acesso em: 30 dez. 2022.
+
+> Introdução à Linguagem Prolog - Parte 1. Disponível em: https://www.youtube.com/watch?v=omLANiMqbuY&t=1s. Acesso em: 30 dez. 2022.
