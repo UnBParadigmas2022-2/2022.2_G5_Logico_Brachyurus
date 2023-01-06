@@ -13,7 +13,8 @@
 	assertz(itensDoJogo('Moedas', 0.10)),
 	assertz(itensDoJogo('Sino', 0.5)),
 	assertz(itensDoJogo('Graveto', 0.2)),
-	assertz(itensDoJogo('Pedra', 0.35)).
+	assertz(itensDoJogo('Pedra', 0.35)),
+	assertz(itensDoJogo('Vazio', 0.0)).
 
 /* Funções que adicionam itens na mochila*/ 
 ganhou_sino :- 
@@ -30,6 +31,10 @@ ganhou_pedra :-
 	nl, write('*** Você ganhou uma pedra ***'), 
 	itensDoJogo('Pedra', Peso),
 	assertz(mochila('Pedra', Peso)).
+
+ganhou_vazio :- 
+	itensDoJogo('Vazio', Peso),
+	assertz(mochila('Vazio', Peso)).
 
 /*  Cada nó vai ter 2 paradas que vem das alternativas de cima, ou seja, se o menu tem 2 opções e chama o nó1, precisa ter 2 nós1  */
 no1(1) :-
@@ -275,6 +280,7 @@ no9(1) :- limpa_tela,
 no9(2) :- limpa_tela, 
         decrementar_contador,
 		sub_ranking,
+		ganhou_vazio,
 		nl, write('Passado algum tempo de caminhada, próximo a caverna da onça-pintada são encontradas pegadas de lobo-guará.'), nl,
 		write('Porém uma ventania forte acontece e as pegadas somem, '), nl,
 		write('infelizmente o seu faro não é bom suficiente para acompanhar o cheiro.'), nl,
@@ -403,21 +409,19 @@ no15(2) :-
 no16(1) :- limpa_tela,
 		sum_ranking,
         nl, write('Você se escondeu em uma parte mais escura da caverna e ficou o mais encolhido possível... Você vê a Onça-Pintada seguindo o cheiro de algo, ela para onde estava a lobeira, cheira bastante, e segue até a entrada da caverna...'), nl,
-		mochila(X,Y):- 
-			X = 'Sino' ; X = 'Graveto' ; X = 'Pedra' -> 
-			write('1. Jogar um item para distrair a onça!'), nl,
-			write('2. Esperar para ver o que acontece'), nl,
-			write('Faça sua escolha:'),nl,
-			write('>'),
-	  		read(Alternative),
-			no161(Alternative).
-		; 
+		mochila(X,_),
+			( X = 'Sino' -> write('1. Jogar o sino para distrair a onça!'), nl, write('2. Esperar para ver o que acontece'), nl, write('Faça sua escolha:'),nl, write('>'), read(Alternative), no161(Alternative)
+			;
+			X = 'Graveto' -> write('1. Jogar o graveto para distrair a onça!'), nl, write('2. Esperar para ver o que acontece'), nl, write('Faça sua escolha:'),nl, write('>'), read(Alternative), no161(Alternative)
+			;
+			X = 'Pedra' -> write('1. Jogar a pedra para distrair a onça!'), nl, write('2. Esperar para ver o que acontece'), nl, write('Faça sua escolha:'),nl, write('>'), read(Alternative), no161(Alternative)
+			; 
 			write('1. Esperar para ver o que acontece'), nl,
 			write('Faça sua escolha:'),nl,
 			write('>'),
-	  		read(Alternative),
-    		no17(Alternative).
-
+			read(Alternative),
+			no17(Alternative)
+			).
 
 no161(1) :- limpa_tela,
 		sum_ranking,
