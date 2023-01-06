@@ -89,6 +89,12 @@ TEMPO: +/- 15min-->
 (iii) Contribuições e Fragilidades, e
 (iV) Trabalhos Futuros.-->
 
+Melhorias para o jogo que você pode ajudar a implementar !
+    - Lista de amigos no jogo para você conseguir passar por algumas situações.
+    - Dar algumas dicas durante o jogo sobre alguns princípios que podem te levar para a vitória.
+
+Fique à vontade para adicionar mais nós na história!
+
 ## Fontes
 <!---Referencie, adequadamente, as referências utilizadas.
 Indique ainda sobre fontes de leitura complementares.
