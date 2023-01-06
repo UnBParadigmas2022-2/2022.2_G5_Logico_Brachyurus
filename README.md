@@ -72,7 +72,7 @@ TEMPO: +/- 15min-->
 | João Pedro Alves da Silva Chaves |  |  |
 | João Vitor de Souza Durso |  |  |
 | Leticia Assunção Aires Moreira | |  |
-| Luan Vasco Cavalcante |  |  |
+| Luan Vasco Cavalcante | Funcionalidades adicionadas : Nó inicial, lógica e introdução ao jogo. Funcionalidades revisadas : Itens. | Excelente |
 | Victor Rayan Adriano Ferreira | |  |
 
 ## Outros 
