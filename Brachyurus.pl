@@ -364,7 +364,9 @@ no13(2) :- limpa_tela,
 		
 no14(1) :-
 		sum_ranking,
-        nl, write('Ao seguir em frente... Você se depara com um enorme incêndio causado pelos caçadores.'), nl,
+        nl, write('Ao seguir em frente... O tatu fica furioso e taca uma pedra em você.'), nl,
+		ganhou_pedra, nl,
+		nl, write('Seguindo seu caminho, você se depara com um enorme incêndio causado pelos caçadores.'), nl,
 		write('1. Seguir em direção ao incêndio para procurar pela sua mãe.'), nl,
 		write('2. Ignorar o incêndio e dar meia volta.'), nl,
 		write('Faça sua escolha:'),nl,
@@ -598,7 +600,9 @@ no30(1) :- limpa_tela,
 		no31(Alternative).
 
 no30(2) :- limpa_tela,
-        nl, write('Caminhando em direção a fumaça, você se vê uma anta caida no chão pedindo ajuda.'), nl,
+        nl, write('Caminhando em direção a fumaça, você tropeçou em graveto e se machucou, mas nada muito sério. Você precisa achar sua mãe!'), nl,
+		ganhou_graveto, nl,
+		nl, write('Mais à frente, você vê uma anta caida no chão pedindo ajuda.'), nl,
         nl, write('Jovém lobo me ajude, me chamo Claúdio, fugindo das queimada acabei me machucando, ME AJUDE!'), nl,
 		write('1.Ajudar o Claúdio'), nl,
 		write('2.Seguir em frente'), nl,
