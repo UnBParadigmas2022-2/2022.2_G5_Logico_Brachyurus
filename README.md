@@ -73,7 +73,7 @@ TEMPO: +/- 15min-->
 | João Vitor de Souza Durso |  |  |
 | Leticia Assunção Aires Moreira | |  |
 | Luan Vasco Cavalcante |  |  |
-| Victor Rayan Adriano Ferreira | |  |
+| Victor Rayan Adriano Ferreira |1. Funcionalidades adicionadas:<br>- Adição de nós. <br>- Minigame dentro do nó(charada) <br> - Criação de modules do projeto <br>- Remoção de warnings <br> - Ranking do game em arquivo <br> | Excelente |
 | Christian Fleury Alencar Siqueira | 1. Funcionalidades adicionadas:<br>- Adição do nó 19 <br>- Adição do nó 20 <br>- Adição do nó 21 <br>- Adição da estrutura incial do menu (colaboração com a Leticia) <br> - Adição do tutorial <br> 2. Funcionalidades revisadas:<br>- [Dificuldade](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/5)| Excelente |
 
 ## Outros 
