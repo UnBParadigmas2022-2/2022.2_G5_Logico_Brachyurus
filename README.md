@@ -74,7 +74,7 @@ TEMPO: +/- 15min-->
 | Leticia Assunção Aires Moreira | |  |
 | Luan Vasco Cavalcante |  |  |
 | Victor Rayan Adriano Ferreira | |  |
-| Christian Fleury Alencar Siqueira | 1. Funcionalidades adicionadas:<br>- [Adição do nó 19] <br>- [Adição do nó 20] <br>- [Adição do nó 21] <br>- [Adição da estrutura incial do menu] (colaboração com a Leticia) <br> - [Adição do tutorial] <br> 2. Funcionalidades revisadas:<br>- [Dificuldade] (https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/5)| Excelente |
+| Christian Fleury Alencar Siqueira | 1. Funcionalidades adicionadas:<br>- Adição do nó 19 <br>- Adição do nó 20 <br>- Adição do nó 21 <br>- Adição da estrutura incial do menu (colaboração com a Leticia) <br> - Adição do tutorial <br> 2. Funcionalidades revisadas:<br>- [Dificuldade](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/5)| Excelente |
 
 ## Outros 
 <!---Quaisquer outras informações sobre o projeto podem ser descritas aqui. Não esqueça, entretanto, de informar sobre:
