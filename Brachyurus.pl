@@ -546,7 +546,7 @@ no20(2) :- limpa_tela,
 		no10(2).
 
 no21(1) :- limpa_tela,
-        nl, write('O sagui disse que viu sua mamãe nos arredores da caverna'), nl,
+        nl, write('Sagui: Sua mamãe está nos arredores da caverna, acabei caindo aqui nesse incêndio fugindo da Onça que estava lá!'), nl,
 		write('1. Voltar para a caverna em busca de sua mamãe'), nl,
 		write('2. Seguir em buscas de sua mamãe na tenda do caçador'), nl,
 		write('>'),
@@ -556,9 +556,9 @@ no21(1) :- limpa_tela,
 /*decrementar aqui*/
 no22(1) :- limpa_tela,
         decrementar_contador,
-        nl, write('Seu menino mal educado.'), nl,
-        write('Não conte comigo para sua jornada'), nl,
-        write('E boa sorte achando sua mãe sozinho!'), nl, nl,
+        nl, write('Cuca: Seu menino mal educado.'), nl,
+        write('Cuca: Não conte comigo para sua jornada'), nl,
+        write('Cuca: E boa sorte achando sua mãe sozinho!'), nl, nl,
         no4(1).
 	
 no22(2) :- limpa_tela,
@@ -676,7 +676,7 @@ no30(2) :- limpa_tela,
         nl, write('Caminhando em direção a fumaça, você tropeçou em graveto e se machucou, mas nada muito sério. Você precisa achar sua mãe!'), nl,
 		ganhou_graveto,
 		nl, write('Mais à frente, você vê uma anta caida no chão pedindo ajuda.'), nl,
-        nl, write('Jovém lobo me ajude, me chamo Claúdio, fugindo das queimada acabei me machucando, ME AJUDE!'), nl,
+        nl, write('Anta: Jovém lobo me ajude, me chamo Claúdio, fugindo das queimada acabei me machucando, ME AJUDE!'), nl,
 		write('1. Ajudar o Claúdio'), nl,
 		write('2. Seguir em frente'), nl,
 		write('>'),
@@ -688,12 +688,12 @@ no31(1) :- limpa_tela,
 		no30(2).
 
 no31(2) :- limpa_tela,
-        nl, write('Olá pequeno lobo, me chamo Priscila, a jaguatirica, acredito que esteja longe de casa, nunca vi sua espécie por essas bandas, posso te ajudar, mas para isso terá que resolver uma charada, HAHA'), nl,
+        nl, write('Jaguatirica: Olá pequeno lobo, me chamo Priscila, acredito que esteja longe de casa, nunca vi sua espécie por essas bandas, posso te ajudar, mas para isso terá que resolver uma charada, HAHA'), nl,
         write('A charada é:'), nl,
 		startcharada_jaguatirica(1).
 
 no32(1) :- limpa_tela,
-        nl, write('Muito obrigado jovem, como eu poderia retribuir sua ajudar meu caro'), nl,
+        nl, write('Anta: Muito obrigado jovem, como eu poderia retribuir sua ajudar meu caro'), nl,
 		write('1. Estou procurando minha mãe'), nl,
 		write('2. Estou perdido'), nl,
 		write('>'),
@@ -709,11 +709,11 @@ no32(2) :- limpa_tela,
 		no34(Alternative).
 
 no33(1) :- limpa_tela,
-        nl, write('Eu vi uma loba de sua espécie indo para a caverna, não posso le acompanhar, mas desejo sorte em sua caminhada'), nl,
+        nl, write('Anta: Eu vi uma loba de sua espécie indo para a caverna, não posso lhe acompanhar, mas desejo sorte em sua caminhada'), nl,
 		no8(1).
 
 no33(2) :- limpa_tela,
-        nl, write('Calma meu jovem lobo, Eu vi uma loba de sua espécie indo para a caverna, não posso le acompanhar, mas desejo sorte em sua caminhada, sei que ira dar tudo certo.'), nl,
+        nl, write('Anta: Calma meu jovem lobo, Eu vi uma loba de sua espécie indo para a caverna, não posso lhe acompanhar, mas desejo sorte em sua caminhada, sei que irá dar tudo certo.'), nl,
 		no8(1).
 
 no34(1) :- limpa_tela,
@@ -728,11 +728,11 @@ no34(2) :- limpa_tela,
 		no19(1).
 
 no35(1) :-limpa_tela,
-		nl, write('Parabéns você acertou a charada, vou le ajudar, vi uma loba de sua espécie caminhando para a tenda do caçador. HAHA'), nl,
+		nl, write('Parabéns você acertou a charada, vou lhe ajudar, vi uma loba de sua espécie caminhando para a tenda do caçador. HAHA'), nl,
 		write('Então Brachyurus segue para a tenda do caçador.'), nl,
 		no26(2).
 
 no35(2) :-limpa_tela,
-		nl, write('Você errou a charada, porém vou le ajudar, vi uma loba de sua espécie caminhando para a tenda do caçador. HAHA'), nl,
+		nl, write('Você errou a charada, porém vou lhe ajudar, vi uma loba de sua espécie caminhando para a tenda do caçador. HAHA'), nl,
 		write('Então Brachyurus segue para a tenda do caçador.'), nl,
 		no26(2).
