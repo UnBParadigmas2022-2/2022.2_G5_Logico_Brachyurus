@@ -88,7 +88,7 @@ TEMPO: +/- 15min-->
 (ii) Percepções;
 (iii) Contribuições e Fragilidades, e
 (iV) Trabalhos Futuros.-->
-Com este trabalho foi possível aprender muito sobre Prolog e como funciona o pensamento de programação lógico. <br> <br>
+Com este trabalho foi possível aprender muito sobre Prolog e como funciona o pensamento de programação lógico. <br> 
 
 Melhorias almejadas: <br>
     - Lista de amigos feitos para o jogador conseguir chamá-los em alguma situação conveniente; <br>
