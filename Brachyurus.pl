@@ -1,6 +1,7 @@
 :- use_module(menu).
 :- use_module(tutorial).
 :- use_module(helpers).
+:- discontiguous no16/1.
 /*:- use_module(library(random))*/
 
 /* Para persistir os itens: */
@@ -266,7 +267,7 @@ no9(1) :- limpa_tela,
 		nl, write('O cachorro caramelo fica muito grato pela sua ajuda, '), nl,
  	  	write('porém não sabe nada sobre sua mãe, mas diz que para retribuir irá te acompanhar até a caverna da onça-pintada. '), nl,
 		write('Além disso, ele te dá um item para você lembrar dele durante a sua caminhada. '), nl,
-		ganhou_sino,
+		ganhou_sino, nl,
 		write('Você seguiu sua viagem. Passado algum tempo de caminhada, próximo a caverna da onça-pintada são encontradas pegadas de lobo-guará.'), nl,
 		write('Porém uma ventania forte acontece e as pegadas somem, '), nl,
 		write('felizmente o cachorro caramelo tem um ótimo faro e consegue sentir o cheiro do dono/a das pegadas.'), nl,
