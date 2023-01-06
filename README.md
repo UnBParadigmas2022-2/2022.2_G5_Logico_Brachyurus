@@ -95,7 +95,8 @@ Melhorias almejadas: <br>
     - Dar algumas dicas durante o jogo sobre alguns princípios que podem te levar para a vitória; <br>
     - Adicionar mais nós para dificultar mais ainda a vitória; <br>
     - Adicionar mais itens durante o jogo e mais nós para utilizá-los; <br>
-    - Adicionar probabilidade na obtenção dos itens. <br>
+    - Adicionar probabilidade na obtenção dos itens; <br>
+    - Interface gráfica. <br>
 
 ## Fontes
 <!---Referencie, adequadamente, as referências utilizadas.
