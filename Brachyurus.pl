@@ -1,9 +1,43 @@
 :- use_module(menu).
 :- use_module(tutorial).
 :- use_module(helpers).
+:- discontiguous no16/1.
+/*:- use_module(library(random))*/
+
+/* Para persistir os itens: */
+:- dynamic itensDoJogo/2.
+:- dynamic mochila/2.
+
+/* Declarando todos os [itens, peso unitário (kg)] do jogo*/
+:- assertz(itensDoJogo('Balde de água', 10.0)),
+	assertz(itensDoJogo('Roedor morto', 2.0)),
+	assertz(itensDoJogo('Moedas', 0.10)),
+	assertz(itensDoJogo('Sino', 0.5)),
+	assertz(itensDoJogo('Graveto', 0.2)),
+	assertz(itensDoJogo('Pedra', 0.35)),
+	assertz(itensDoJogo('Vazio', 0.0)).
+
+/* Funções que adicionam itens na mochila*/ 
+ganhou_sino :- 
+	nl, write('*** Você ganhou um sino ***'), nl, 
+	itensDoJogo('Sino', Peso),
+	assertz(mochila('Sino', Peso)).
+
+ganhou_graveto :- 
+	nl, write('*** Você ganhou um graveto ***'), nl,
+	itensDoJogo('Graveto', Peso),
+	assertz(mochila('Graveto', Peso)).
+
+ganhou_pedra :- 
+	nl, write('*** Você ganhou uma pedra ***'), nl,
+	itensDoJogo('Pedra', Peso),
+	assertz(mochila('Pedra', Peso)).
+
+ganhou_vazio :- 
+	itensDoJogo('Vazio', Peso),
+	assertz(mochila('Vazio', Peso)).
 
 /*  Cada nó vai ter 2 paradas que vem das alternativas de cima, ou seja, se o menu tem 2 opções e chama o nó1, precisa ter 2 nós1  */
-
 no1(1) :-
         limpa_tela,
 		write('Digite seu nome: TUDO EM MINÚSCULO'), nl,
@@ -232,7 +266,9 @@ no9(1) :- limpa_tela,
 		sum_ranking,
 		nl, write('O cachorro caramelo fica muito grato pela sua ajuda, '), nl,
  	  	write('porém não sabe nada sobre sua mãe, mas diz que para retribuir irá te acompanhar até a caverna da onça-pintada. '), nl,
-		write('Passado algum tempo de caminhada, próximo a caverna da onça-pintada são encontradas pegadas de lobo-guará.'), nl,
+		write('Além disso, ele te dá um item para você lembrar dele durante a sua caminhada. '), nl,
+		ganhou_sino, nl,
+		write('Você seguiu sua viagem. Passado algum tempo de caminhada, próximo a caverna da onça-pintada são encontradas pegadas de lobo-guará.'), nl,
 		write('Porém uma ventania forte acontece e as pegadas somem, '), nl,
 		write('felizmente o cachorro caramelo tem um ótimo faro e consegue sentir o cheiro do dono/a das pegadas.'), nl,
 		write('1. Confiar no cachorro caramelo e segui-lo.'), nl,
@@ -245,6 +281,7 @@ no9(1) :- limpa_tela,
 no9(2) :- limpa_tela, 
         decrementar_contador,
 		sub_ranking,
+		ganhou_vazio,
 		nl, write('Passado algum tempo de caminhada, próximo a caverna da onça-pintada são encontradas pegadas de lobo-guará.'), nl,
 		write('Porém uma ventania forte acontece e as pegadas somem, '), nl,
 		write('infelizmente o seu faro não é bom suficiente para acompanhar o cheiro.'), nl,
@@ -334,7 +371,9 @@ no13(2) :- limpa_tela,
 		
 no14(1) :-
 		sum_ranking,
-        nl, write('Ao seguir em frente... Você se depara com um enorme incêndio causado pelos caçadores.'), nl,
+        nl, write('Ao seguir em frente... O tatu fica furioso e taca uma pedra em você.'), nl,
+		ganhou_pedra,
+		nl, write('Seguindo seu caminho, você se depara com um enorme incêndio causado pelos caçadores.'), nl,
 		write('1. Seguir em direção ao incêndio para procurar pela sua mãe.'), nl,
 		write('2. Ignorar o incêndio e dar meia volta.'), nl,
 		write('Faça sua escolha:'),nl,
@@ -371,12 +410,91 @@ no15(2) :-
 no16(1) :- limpa_tela,
 		sum_ranking,
         nl, write('Você se escondeu em uma parte mais escura da caverna e ficou o mais encolhido possível... Você vê a Onça-Pintada seguindo o cheiro de algo, ela para onde estava a lobeira, cheira bastante, e segue até a entrada da caverna...'), nl,
-		write('1. Atacar a Onça-Pintada pelas costas'), nl,
-		write('2. Esperar para ver o que acontece'), nl,
+		mochila(X,_),
+			( X = 'Sino' -> write('1. Jogar o sino para distrair a onça!'), nl, write('2. Esperar para ver o que acontece'), nl, write('Faça sua escolha:'),nl, write('>'), read(Alternative), no161(Alternative)
+			;
+			X = 'Graveto' -> write('1. Jogar o graveto para distrair a onça!'), nl, write('2. Esperar para ver o que acontece'), nl, write('Faça sua escolha:'),nl, write('>'), read(Alternative), no162(Alternative)
+			;
+			X = 'Pedra' -> write('1. Jogar a pedra para distrair a onça!'), nl, write('2. Esperar para ver o que acontece'), nl, write('Faça sua escolha:'),nl, write('>'), read(Alternative), no163(Alternative)
+			; 
+			write('1. Esperar para ver o que acontece'), nl,
+			write('Faça sua escolha:'),nl,
+			write('>'),
+			read(Alternative),
+			no17(Alternative)
+			).
+
+no161(1) :- limpa_tela,
+		sum_ranking,
+        nl, write('Você jogou o sino para distrair a onça, agora você tem a oportunidade de atacar a Onça-Pintada pelas costas, porém ela conseguiu ouvir seu pulo e desviou do seu ataque, você caiu fora da caverna... '), nl,
+		write('A Onça-Pintada vem em sua direção porém, uma sombra aparece sobre você… É sua mamãe e o cachorro caramelo! '), nl,
+        write('A Onça é muito poderosa, porém 3 adversários já parece ser um número grande para ela, então ela volta para caverna... '), nl,nl,
+        write('Você GANHOU !!'),nl,
+		write_ranking,
+		retract(mochila('Sino', 0.5)),
+        write('Gostaria de jogar de novo ? (y,n)'),nl,
+        write('>'),
+        read(Desire),
+        play(Desire).
+
+no161(2) :- limpa_tela,
+		sum_ranking,
+        nl, write('A Onça seguiu para fora da caverna, você então decide terminar de investigar a caverna... Porém não encontra mais ninguém...'), nl,
+		write('Opa! Uma pegada de lobo-guará!! Provavelmente sua mãe esteve por aqui há pouco tempo!'), nl,
+		write('1. Esperar um tempo para sair da caverna e seguir em direção à tenda'), nl,
+		write('2. Esperar que sua mãe apareça novamente na caverna por tempo indeterminado'), nl,
 		write('Faça sua escolha:'),nl,
 		write('>'),
-	  read(Alternative),
-    no17(Alternative).
+	  	read(Alternative),
+		no18(Alternative).
+
+no162(1) :- limpa_tela,
+		sum_ranking,
+        nl, write('Você jogou o graveto na parede para distrair a onça, agora você tem a oportunidade de atacar a Onça-Pintada pelas costas, porém ela conseguiu ouvir seu pulo e desviou do seu ataque, você caiu fora da caverna... '), nl,
+		write('A Onça-Pintada vem em sua direção porém, uma sombra aparece sobre você… É sua mamãe e o cachorro caramelo! '), nl,
+        write('A Onça é muito poderosa, porém 3 adversários já parece ser um número grande para ela, então ela volta para caverna... '), nl,nl,
+        write('Você GANHOU !!'),nl,
+		write_ranking,
+		retract(mochila('Graveto', 0.2)),
+        write('Gostaria de jogar de novo ? (y,n)'),nl,
+        write('>'),
+        read(Desire),
+        play(Desire).
+
+no162(2) :- limpa_tela,
+		sum_ranking,
+        nl, write('A Onça seguiu para fora da caverna, você então decide terminar de investigar a caverna... Porém não encontra mais ninguém...'), nl,
+		write('Opa! Uma pegada de lobo-guará!! Provavelmente sua mãe esteve por aqui há pouco tempo!'), nl,
+		write('1. Esperar um tempo para sair da caverna e seguir em direção à tenda'), nl,
+		write('2. Esperar que sua mãe apareça novamente na caverna por tempo indeterminado'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	  	read(Alternative),
+		no18(Alternative).
+
+no163(1) :- limpa_tela,
+		sum_ranking,
+        nl, write('Você jogou a pedra na parede para distrair a onça, agora você tem a oportunidade de atacar a Onça-Pintada pelas costas, porém ela conseguiu ouvir seu pulo e desviou do seu ataque, você caiu fora da caverna... '), nl,
+		write('A Onça-Pintada vem em sua direção porém, uma sombra aparece sobre você… É sua mamãe e o cachorro caramelo! '), nl,
+        write('A Onça é muito poderosa, porém 3 adversários já parece ser um número grande para ela, então ela volta para caverna... '), nl,nl,
+        write('Você GANHOU !!'),nl,
+		write_ranking,
+		retract(mochila('Pedra', 0.35)),
+        write('Gostaria de jogar de novo ? (y,n)'),nl,
+        write('>'),
+        read(Desire),
+        play(Desire).
+
+no163(2) :- limpa_tela,
+		sum_ranking,
+        nl, write('A Onça seguiu para fora da caverna, você então decide terminar de investigar a caverna... Porém não encontra mais ninguém...'), nl,
+		write('Opa! Uma pegada de lobo-guará!! Provavelmente sua mãe esteve por aqui há pouco tempo!'), nl,
+		write('1. Esperar um tempo para sair da caverna e seguir em direção à tenda'), nl,
+		write('2. Esperar que sua mãe apareça novamente na caverna por tempo indeterminado'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	  	read(Alternative),
+		no18(Alternative).
 
 no16(2) :- limpa_tela, 
         nl, write('A Onça-Pintada ouve os seus gritos e vem correndo te atacar, você não teve a menor chance...'), nl,
@@ -384,18 +502,6 @@ no16(2) :- limpa_tela,
     	fim_jogo.
 
 no17(1) :- limpa_tela,
-		sum_ranking,
-        nl, write('Você tentou atacar a Onça-Pintada pelas costas, porém ela conseguiu ouvir seu pulo e desviou do seu ataque, você caiu fora da caverna... '), nl,
-		write('A Onça-Pintada vem em sua direção porém, uma sombra aparece sobre você… É sua mamãe e o cachorro caramelo! '), nl,
-        write('A Onça é muito poderosa, porém 3 adversários já parece ser um número grande para ela, então ela volta para caverna... '), nl,nl,
-        write('Você GANHOU !!'),nl,
-		write_ranking,
-        write('Gostaria de jogar de novo ? (y,n)'),nl,
-        write('>'),
-        read(Desire),
-        play(Desire).
-
-no17(2) :- limpa_tela,
 		sum_ranking,
         nl, write('A Onça seguiu para fora da caverna, você então decide terminar de investigar a caverna... Porém não encontra mais ninguém...'), nl,
 		write('Opa! Uma pegada de lobo-guará!! Provavelmente sua mãe esteve por aqui há pouco tempo!'), nl,
@@ -441,9 +547,9 @@ no20(2) :- limpa_tela,
 		no10(2).
 
 no21(1) :- limpa_tela,
-        nl, write('O sagui disse que viu sua mamãe nos arredores da caverna'), nl,
-		write('1.Voltar para a caverna em busca de sua mamãe'), nl,
-		write('2.Seguir em buscas de sua mamãe na tenda do caçador'), nl,
+        nl, write('Sagui: Sua mamãe está nos arredores da caverna, acabei caindo aqui nesse incêndio fugindo da Onça que estava lá!'), nl,
+		write('1. Voltar para a caverna em busca de sua mamãe'), nl,
+		write('2. Seguir em buscas de sua mamãe na tenda do caçador'), nl,
 		write('>'),
 	    read(Alternative), 
 		no26(Alternative).
@@ -451,22 +557,22 @@ no21(1) :- limpa_tela,
 /*decrementar aqui*/
 no22(1) :- limpa_tela,
         decrementar_contador,
-        nl, write('Seu menino mal educado.'), nl,
-        write('Não conte comigo para sua jornada'), nl,
-        write('E boa sorte achando sua mãe sozinho!'), nl, nl,
+        nl, write('Cuca: Seu menino mal educado.'), nl,
+        write('Cuca: Não conte comigo para sua jornada'), nl,
+        write('Cuca: E boa sorte achando sua mãe sozinho!'), nl, nl,
         no4(1).
 	
 no22(2) :- limpa_tela,
-        nl, write('Obrigada, garoto'), nl,
+        nl, write('Cuca: Obrigada, garoto'), nl,
         incrementar_contador,
-        write('A propósito, vi sua mãe fugindo ainda ontem em direção à caverna da onça'), nl,
+        write('Cuca: A propósito, vi sua mãe fugindo ainda ontem em direção à caverna da onça'), nl,
         write('1. Questionar Cuca a respeito da informação'), nl,
         write('2. Mandar ela ir em seu lugar'), nl,
         read(Alternative),
         no23(Alternative).
 	
 no22(3) :- limpa_tela, 
-        nl, write('Chorar lava a alma, mas não vai trazer sua mãe de volta'), nl,
+        nl, write('Cuca: Chorar lava a alma, mas não vai trazer sua mãe de volta'), nl,
         write('1. Afugentar Cuca'), nl,
         write('2. Oferecer abrigo a Cuca'), nl,
         write('3. Chorar de saudade da mãe'), nl,
@@ -476,8 +582,8 @@ no22(3) :- limpa_tela,
 	
 no23(1) :- limpa_tela,
 		sum_ranking,
-        nl, write('Isso mesmo. Algumas horas atrás vi sua mãe saindo da toca às pressas'), nl,
-        write('E então, vai querer companhia na sua busca?'), nl,
+        nl, write('Cuca: Isso mesmo. Algumas horas atrás vi sua mãe saindo da toca às pressas'), nl,
+        write('Cuca: E então, vai querer companhia na sua busca?'), nl,
         write('1. Sim'), nl,
     	write('2. Não'), nl,
     	write('3. Aguardar mais a volta de mamãe'), nl,
@@ -521,8 +627,8 @@ no26(1) :- limpa_tela,
 
 no26(2) :- 
 		nl, write('Você entra na tenda do caçador e ele está dormindo'), nl,
-		write('1.Procurar sua mamãe na tenda'), nl,
-		write('2.Sair da tenda'), nl,
+		write('1. Procurar sua mamãe na tenda'), nl,
+		write('2. Sair da tenda'), nl,
 		write('>'),
 		read(Alternative),
 		no27(Alternative).
@@ -533,8 +639,8 @@ no27(1) :- limpa_tela,
 
 no27(2) :-
 		nl, write('Ao sair da tenda você pisa em um galho e faz barulho e acorda o caçador'), nl,
-		write('1.Correr!'), nl,
-		write('2.Pedir ajudar ao caçador'), nl,
+		write('1. Correr!'), nl,
+		write('2. Pedir ajudar ao caçador'), nl,
 		write('>'),
 		read(Alternative),
 		no28(Alternative).
@@ -553,25 +659,27 @@ no29(1) :- limpa_tela,
 
 no29(2) :- limpa_tela,
         nl, write('Carlinhos fica muito bravo pela seu egoismo, só le resta seguir em direção a floresta, ao entrar você se depara com dois caminhos'), nl,
-		write('1.Seguir pela floresta densa'), nl,
-		write('2.Seguir em direção a fumaça'), nl,
+		write('1. Seguir pela floresta densa'), nl,
+		write('2. Seguir em direção a fumaça'), nl,
 		write('>'),
 		read(Alternative),
 		no30(Alternative).
 
 no30(1) :- limpa_tela,
         nl, write('Ao entrar na floresta densa logo de cara, você se depara com uma bela jaguatirica, descansado deitada em uma árvore. Com o barulho de seus passos a jaguatirica acorda e vai ao seu encontro.'), nl,
-		write('1.Fugir da Jaguatirica'), nl,
-		write('2.Falar com ela'), nl,
+		write('1. Fugir da Jaguatirica'), nl,
+		write('2. Falar com ela'), nl,
 		write('>'),
 		read(Alternative),
 		no31(Alternative).
 
 no30(2) :- limpa_tela,
-        nl, write('Caminhando em direção a fumaça, você se vê uma anta caida no chão pedindo ajuda.'), nl,
-        nl, write('Jovém lobo me ajude, me chamo Claúdio, fugindo das queimada acabei me machucando, ME AJUDE!'), nl,
-		write('1.Ajudar o Claúdio'), nl,
-		write('2.Seguir em frente'), nl,
+        nl, write('Caminhando em direção a fumaça, você tropeçou em graveto e se machucou, mas nada muito sério. Você precisa achar sua mãe!'), nl,
+		ganhou_graveto,
+		nl, write('Mais à frente, você vê uma anta caida no chão pedindo ajuda.'), nl,
+        nl, write('Anta: Jovém lobo me ajude, me chamo Claúdio, fugindo das queimada acabei me machucando, ME AJUDE!'), nl,
+		write('1. Ajudar o Claúdio'), nl,
+		write('2. Seguir em frente'), nl,
 		write('>'),
 		read(Alternative),
 		no32(Alternative).
@@ -581,32 +689,32 @@ no31(1) :- limpa_tela,
 		no30(2).
 
 no31(2) :- limpa_tela,
-        nl, write('Olá pequeno lobo, me chamo Priscila, a jaguatirica, acredito que esteja longe de casa, nunca vi sua espécie por essas bandas, posso te ajudar, mas para isso terá que resolver uma charada, HAHA'), nl,
+        nl, write('Jaguatirica: Olá pequeno lobo, me chamo Priscila, acredito que esteja longe de casa, nunca vi sua espécie por essas bandas, posso te ajudar, mas para isso terá que resolver uma charada, HAHA'), nl,
         write('A charada é:'), nl,
 		startcharada_jaguatirica(1).
 
 no32(1) :- limpa_tela,
-        nl, write('Muito obrigado jovem, como eu poderia retribuir sua ajudar meu caro'), nl,
-		write('1.Estou procurando minha mãe'), nl,
-		write('2.Estou perdido'), nl,
+        nl, write('Anta: Muito obrigado jovem, como eu poderia retribuir sua ajudar meu caro'), nl,
+		write('1. Estou procurando minha mãe'), nl,
+		write('2. Estou perdido'), nl,
 		write('>'),
 		read(Alternative),
 		no33(Alternative).
 
 no32(2) :- limpa_tela,
         nl, write('Você está perdido e avista um incêndio um pouco perto dali.'), nl,
-		write('1.Continuar entrando na floresta'), nl,
-		write('2.Seguir em direção ao incêndio'), nl,
+		write('1. Continuar entrando na floresta'), nl,
+		write('2. Seguir em direção ao incêndio'), nl,
 		write('>'),
 		read(Alternative),
 		no34(Alternative).
 
 no33(1) :- limpa_tela,
-        nl, write('Eu vi uma loba de sua espécie indo para a caverna, não posso le acompanhar, mas desejo sorte em sua caminhada'), nl,
+        nl, write('Anta: Eu vi uma loba de sua espécie indo para a caverna, não posso lhe acompanhar, mas desejo sorte em sua caminhada'), nl,
 		no8(1).
 
 no33(2) :- limpa_tela,
-        nl, write('Calma meu jovem lobo, Eu vi uma loba de sua espécie indo para a caverna, não posso le acompanhar, mas desejo sorte em sua caminhada, sei que ira dar tudo certo.'), nl,
+        nl, write('Anta: Calma meu jovem lobo, Eu vi uma loba de sua espécie indo para a caverna, não posso lhe acompanhar, mas desejo sorte em sua caminhada, sei que irá dar tudo certo.'), nl,
 		no8(1).
 
 no34(1) :- limpa_tela,
@@ -621,11 +729,11 @@ no34(2) :- limpa_tela,
 		no19(1).
 
 no35(1) :-limpa_tela,
-		nl, write('Parabéns você acertou a charada, vou le ajudar, vi uma loba de sua espécie caminhando para a tenda do caçador. HAHA'), nl,
+		nl, write('Parabéns você acertou a charada, vou lhe ajudar, vi uma loba de sua espécie caminhando para a tenda do caçador. HAHA'), nl,
 		write('Então Brachyurus segue para a tenda do caçador.'), nl,
 		no26(2).
 
 no35(2) :-limpa_tela,
-		nl, write('Você errou a charada, porém vou le ajudar, vi uma loba de sua espécie caminhando para a tenda do caçador. HAHA'), nl,
+		nl, write('Você errou a charada, porém vou lhe ajudar, vi uma loba de sua espécie caminhando para a tenda do caçador. HAHA'), nl,
 		write('Então Brachyurus segue para a tenda do caçador.'), nl,
 		no26(2).
