@@ -17,17 +17,17 @@
 
 /* Funções que adicionam itens na mochila*/ 
 ganhou_sino :- 
-	nl, write('*** Você ganhou um sino ***'), nl
+	nl, write('*** Você ganhou um sino ***'), 
 	itensDoJogo('Sino', Peso),
 	assertz(mochila('Sino', Peso)).
 
 ganhou_graveto :- 
-	nl, write('*** Você ganhou um graveto ***'), nl
+	nl, write('*** Você ganhou um graveto ***'), 
 	itensDoJogo('Graveto', Peso),
 	assertz(mochila('Graveto', Peso)).
 
 ganhou_pedra :- 
-	nl, write('*** Você ganhou uma pedra ***'), nl
+	nl, write('*** Você ganhou uma pedra ***'), 
 	itensDoJogo('Pedra', Peso),
 	assertz(mochila('Pedra', Peso)).
 
@@ -403,21 +403,25 @@ no15(2) :-
 no16(1) :- limpa_tela,
 		sum_ranking,
         nl, write('Você se escondeu em uma parte mais escura da caverna e ficou o mais encolhido possível... Você vê a Onça-Pintada seguindo o cheiro de algo, ela para onde estava a lobeira, cheira bastante, e segue até a entrada da caverna...'), nl,
-		write('1. Atacar a Onça-Pintada pelas costas'), nl,
-		write('2. Esperar para ver o que acontece'), nl,
-		write('Faça sua escolha:'),nl,
-		write('>'),
-	  read(Alternative),
-    no17(Alternative).
+		mochila(X,Y):- 
+			X = 'Sino' ; X = 'Graveto' ; X = 'Pedra' -> 
+			write('1. Jogar um item para distrair a onça!'), nl,
+			write('2. Esperar para ver o que acontece'), nl,
+			write('Faça sua escolha:'),nl,
+			write('>'),
+	  		read(Alternative),
+			no161(Alternative).
+		; 
+			write('1. Esperar para ver o que acontece'), nl,
+			write('Faça sua escolha:'),nl,
+			write('>'),
+	  		read(Alternative),
+    		no17(Alternative).
 
-no16(2) :- limpa_tela, 
-        nl, write('A Onça-Pintada ouve os seus gritos e vem correndo te atacar, você não teve a menor chance...'), nl,
-		write('Você morreu pelo ataque da Onça! '), nl,nl,
-    	fim_jogo.
 
-no17(1) :- limpa_tela,
+no161(1) :- limpa_tela,
 		sum_ranking,
-        nl, write('Você tentou atacar a Onça-Pintada pelas costas, porém ela conseguiu ouvir seu pulo e desviou do seu ataque, você caiu fora da caverna... '), nl,
+        nl, write('Você jogou o item para distrair a onça, agora você tem a oportunidade de atacar a Onça-Pintada pelas costas, porém ela conseguiu ouvir seu pulo e desviou do seu ataque, você caiu fora da caverna... '), nl,
 		write('A Onça-Pintada vem em sua direção porém, uma sombra aparece sobre você… É sua mamãe e o cachorro caramelo! '), nl,
         write('A Onça é muito poderosa, porém 3 adversários já parece ser um número grande para ela, então ela volta para caverna... '), nl,nl,
         write('Você GANHOU !!'),nl,
@@ -427,7 +431,23 @@ no17(1) :- limpa_tela,
         read(Desire),
         play(Desire).
 
-no17(2) :- limpa_tela,
+no161(2) :- limpa_tela,
+		sum_ranking,
+        nl, write('A Onça seguiu para fora da caverna, você então decide terminar de investigar a caverna... Porém não encontra mais ninguém...'), nl,
+		write('Opa! Uma pegada de lobo-guará!! Provavelmente sua mãe esteve por aqui há pouco tempo!'), nl,
+		write('1. Esperar um tempo para sair da caverna e seguir em direção à tenda'), nl,
+		write('2. Esperar que sua mãe apareça novamente na caverna por tempo indeterminado'), nl,
+		write('Faça sua escolha:'),nl,
+		write('>'),
+	  	read(Alternative),
+		no18(Alternative).
+
+no16(2) :- limpa_tela, 
+        nl, write('A Onça-Pintada ouve os seus gritos e vem correndo te atacar, você não teve a menor chance...'), nl,
+		write('Você morreu pelo ataque da Onça! '), nl,nl,
+    	fim_jogo.
+
+no17(1) :- limpa_tela,
 		sum_ranking,
         nl, write('A Onça seguiu para fora da caverna, você então decide terminar de investigar a caverna... Porém não encontra mais ninguém...'), nl,
 		write('Opa! Uma pegada de lobo-guará!! Provavelmente sua mãe esteve por aqui há pouco tempo!'), nl,
