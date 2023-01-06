@@ -1,9 +1,37 @@
 :- use_module(menu).
 :- use_module(tutorial).
 :- use_module(helpers).
+/*:- use_module(library(random))*/
+
+/* Para persistir os itens: */
+:- dynamic itensDoJogo/2.
+:- dynamic mochila/2.
+
+/* Declarando todos os [itens, peso unitário (kg)] do jogo*/
+:- assertz(itensDoJogo('Balde de água', 10.0)),
+	assertz(itensDoJogo('Roedor morto', 2.0)),
+	assertz(itensDoJogo('Moedas', 0.10)),
+	assertz(itensDoJogo('Sino', 0.5)),
+	assertz(itensDoJogo('Graveto', 0.2)),
+	assertz(itensDoJogo('Pedra', 0.35)).
+
+/* Funções que adicionam itens na mochila*/ 
+ganhou_sino :- 
+	nl, write('*** Você ganhou um sino ***'), nl
+	itensDoJogo('Sino', Peso),
+	assertz(mochila('Sino', Peso)).
+
+ganhou_graveto :- 
+	nl, write('*** Você ganhou um graveto ***'), nl
+	itensDoJogo('Graveto', Peso),
+	assertz(mochila('Graveto', Peso)).
+
+ganhou_pedra :- 
+	nl, write('*** Você ganhou uma pedra ***'), nl
+	itensDoJogo('Pedra', Peso),
+	assertz(mochila('Pedra', Peso)).
 
 /*  Cada nó vai ter 2 paradas que vem das alternativas de cima, ou seja, se o menu tem 2 opções e chama o nó1, precisa ter 2 nós1  */
-
 no1(1) :-
         limpa_tela,
 		write('Digite seu nome: TUDO EM MINÚSCULO'), nl,
@@ -232,7 +260,9 @@ no9(1) :- limpa_tela,
 		sum_ranking,
 		nl, write('O cachorro caramelo fica muito grato pela sua ajuda, '), nl,
  	  	write('porém não sabe nada sobre sua mãe, mas diz que para retribuir irá te acompanhar até a caverna da onça-pintada. '), nl,
-		write('Passado algum tempo de caminhada, próximo a caverna da onça-pintada são encontradas pegadas de lobo-guará.'), nl,
+		write('Além disso, ele te dá um item para você lembrar dele durante a sua caminhada. '), nl,
+		ganhou_sino, nl,
+		write('Você seguiu sua viagem. Passado algum tempo de caminhada, próximo a caverna da onça-pintada são encontradas pegadas de lobo-guará.'), nl,
 		write('Porém uma ventania forte acontece e as pegadas somem, '), nl,
 		write('felizmente o cachorro caramelo tem um ótimo faro e consegue sentir o cheiro do dono/a das pegadas.'), nl,
 		write('1. Confiar no cachorro caramelo e segui-lo.'), nl,
