@@ -52,14 +52,15 @@ Cada alternativa será representada por um número inteiro (1, 2, 3, 4...), bast
 Além disso, **é importante que o número da alternativa esteja acompanhado por um ponto final.** Ex: 2.
 Por fim, pressione _enter_ caso queira retornar ao menu. Boa sorte!
 
-### Menú
-Na tela de menú, o jogador pode digitar:<br>
+### Menu
+Na tela de menu, o jogador pode digitar:<br>
 **1**, para iniciar o jogo;<br>
 **2**, para visualizar o tutorial in-game;<br>
 **3**, para entender sobre a história do jogo e<br>
 **4**, para sair do jogo.
 
 ## Vídeo
+https://youtu.be/jDLyASdhK7s
 <!--Adicione 1 ou mais vídeos com a execução do projeto.
 Procure: 
 (i) Introduzir o projeto;
@@ -77,7 +78,7 @@ TEMPO: +/- 15min-->
 | Caio César Oliveira | 1. Funcionalidades adicionadas:<br>- [Adição da dificuldade no jogo](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/5)<br>- [Adição do caráter do jogador](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/2/commits)<br>- [Adição de nós da história do jogo](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/2/commits)<br>2. Funcionalidades revisadas:<br>- [Limpar a tela do usuário](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/6/commits)<br>- [Adição de nós da história do jogo](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/1/files#diff-1dae46e30620ae1658e8d2f196e0555286d680ecc71bc32600e69402b7bbbad3)| Excelente |
 | João Pedro Alves da Silva Chaves | 1. Funcionalidades adicionadas:<br>- [Adição do nó 6](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/1)<br>- [Adição do conjunto de nós da caverna](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/3)<br>2. Funcionalidades revisadas:<br>- [Ranking do Jogo](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/7)<br>- [Adição do nó 26](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/8)| Excelente  |
 | João Vitor de Souza Durso | 1. Funcionalidades adicionadas:<br>- Adição de nós. <br>- Adição de itens no jogo. <br>- Adição de mochila para o jogador carregar itens. <br> - Criação de histórias para utilizar os itens no jogo. <br>- Remoção de warnings. <br> - Revisão do texto do jogo. <br> - Atualizações do README. <br> 2. Funcionalidades revisadas:<br> - Nós 26 ao 35. <br>  | Excelente |
-| Leticia Assunção Aires Moreira | 1. Funcionalidades adicionadas: <br>- Adição do nó 7 <br>- Adição do nó 22 <br>- Adição do nó 23 <br>- Adição do nó 24 <br>- Adição do nó 25 <br>- Adição da Função limpa_tela <br>- Adição da estrutura incial do menu (colaboração com a Christian) <br>- Criação do README <br>| Excelente |
+| Leticia Assunção Aires Moreira | 1. Funcionalidades adicionadas: <br>- Adição do nó 7 <br>- Adição do nó 22 <br>- Adição do nó 23 <br>- Adição do nó 24 <br>- Adição do nó 25 <br>- Adição da Função limpa_tela <br>- Adição da estrutura inicial do menu (colaboração com a Christian) <br>- Criação do README <br>| Excelente |
 | Luan Vasco Cavalcante | Responsável pela ideia inicial do jogo e pelo primeiro nó baseado no jogo que está no aprender. Fez a introdução do jogo e nós. | Excelente |
 | Victor Rayan Adriano Ferreira |1. Funcionalidades adicionadas:<br>- Adição de nós. <br>- Minigame dentro do nó(charada) <br> - Criação de modules do projeto <br>- Remoção de warnings <br> - Ranking do game em arquivo <br> | Excelente |
 | Christian Fleury Alencar Siqueira | 1. Funcionalidades adicionadas:<br>- Adição do nó 19 <br>- Adição do nó 20 <br>- Adição do nó 21 <br>- Adição da estrutura incial do menu (colaboração com a Leticia) <br> - Adição do tutorial <br> 2. Funcionalidades revisadas:<br>- [Dificuldade](https://github.com/UnBParadigmas2022-2/2022.2_G5_Logico_Brachyurus/pull/5)| Excelente |
