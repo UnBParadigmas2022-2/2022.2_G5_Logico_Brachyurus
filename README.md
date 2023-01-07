@@ -24,6 +24,10 @@ Após dias aguardando seu retorno, o lobinho decide ir a seu encontro, apesar da
 
 O andamento do jogo e a história final são diretamente influenciados pelas decisões do jogador com relação às possíveis escolhas de Brachyurus, de modo que o reencontro do filhote e sua mãe é uma das várias possíveis conclusões do jogo.
 
+## Apresentação
+
+https://www.youtube.com/watch?v=jDLyASdhK7s
+
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/69814362/210113370-2edf46e8-c4f6-4d12-aad2-ac241c9f6d2b.png)
 
